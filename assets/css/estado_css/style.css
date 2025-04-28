@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: #18181b;
+}
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+}
+.main{
+    width: 100%;
+    height: 100%;
+
+    margin-top: 80px;
+    padding: 15px;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    border: 1px solid blue;
+}
+
+.containerImgLogo{
+    width: 60px;
+    height: 60px;
+}
+.img_logo{
+    width: 100%;
+    border-radius: 50%;
+}
