@@ -8,10 +8,10 @@
 
     display: flex;
     align-items: center;
-    /* justify-content:center ; */
+    justify-content:space-around;
     flex-direction: column;
 
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .continer_inp_nome{
@@ -21,7 +21,7 @@
     /* border: 1px solid green; */
 }
 
-/* From Uiverse.io by Satwinder04 */ 
+
 .input-container {
     position: relative;
     margin: 50px auto;
@@ -71,3 +71,12 @@
     transform: scaleX(1);
   }
   
+
+.container_btn_cadastrar_estado{
+  width: 90%;
+  gap: 10px;
+
+  /* border: 1px solid red; */
+  justify-content: end;
+  
+}

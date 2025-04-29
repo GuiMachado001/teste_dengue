@@ -1,3 +1,3 @@
 document.querySelector('.btn_cadastrar_estado').addEventListener('click', function(){
-    window.location = './cadastrar_estado.html';
+    window.location = '../cadastrar/cadastrar_estado.html';
 })
