@@ -49,6 +49,16 @@
                 return false;
             }
         }
+
+        public function select($where = null, $order = null, $limit = null, $fields = '*'){
+            $where = $where ? 'WHERE' . $where : '';
+            $order = $order ? 'ORDER BY' . $order : '';
+            $limit = $limit ? 'LIMIT' . $limit : '';
+
+            $query = 'SELECT '.$fields.' FROM '.$this->table. ' '.$where.' '.$order. ' '.$limit ;
+
+            return $this->execute($query);
+        }
     }
 
 
