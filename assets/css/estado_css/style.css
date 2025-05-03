@@ -178,6 +178,10 @@ body{
 
 }
 
+.container_title_pagina{
+    padding: 20px;
+}
+
 .span_container_title_pagina {
     position: relative;
     font-size: 32px;
@@ -210,4 +214,28 @@ body{
     height: 50px;
     border-left: 4px solid #fff;
     border-bottom: 4px solid #fff;
+}
+
+@media (min-width: 0px) and (max-width: 350px) {
+    .span_container_title_pagina{
+        font-size: 15px;
+    }
+
+    .span_container_title_pagina::before {
+        width: 25px;
+        height: 25px;
+    }
+    
+    /* Canto inferior esquerdo */
+    .span_container_title_pagina::after {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+
+@media (min-width: 351px) and (max-width: 510px) {
+    .span_container_title_pagina{
+        font-size: 20px;
+    }
 }

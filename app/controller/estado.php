@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../model/Database.php';
 
 class Estado{
+    public int $id_estado;
     public string $nome;
 
     public function cadastrar(){

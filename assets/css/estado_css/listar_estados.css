@@ -68,3 +68,14 @@
    }
    
 
+.container_lista_estados{
+    width: 50%;
+    margin-top: 50px;
+
+}
+
+@media (max-width: 930px) {
+    .container_lista_estados{
+        width: 90%;
+    }
+}
