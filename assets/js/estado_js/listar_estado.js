@@ -12,16 +12,14 @@ document.addEventListener("DOMContentLoaded", function() {
         estados.forEach(estado => {
             const tr = document.createElement("tr");
 
-            tr.innerHTML = `
-            <td>${estado.nome}</td>
-            <td>
-                <a class="btn btn-primary" href="./editar_estado.html?id_estado=${estado.id_estado}">
-                    <i class="bi bi-pencil-square"></i> Editar
-                </a>
-                <a class="btn btn-danger" href="./excluir_estado.php?id_estado=${estado.id_estado}">
-                    <i class="bi bi-trash3"></i> Excluir
-                </a>
-            </td>
+            tbody.innerHTML += `
+            <tr>
+                <td>${estado.nome}</td>
+                <td>
+                    <a href="../editar/editar_estado.html?id_estado=${estado.id_estado}" class="btn btn-sm btn-primary">Editar</a>
+                    <button class="btn btn-sm btn-danger" onclick="excluirEstado(${estado.id_estado})">Excluir</button>
+                </td>
+            </tr>
         `;
 
         tbody.appendChild(tr);

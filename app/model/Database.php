@@ -59,6 +59,28 @@
 
             return $this->execute($query);
         }
+
+        public function select_by_id($where = null, $order = null, $limit = null, $fields = '*'){
+            $where = strlen($where) ? 'WHERE '.$where : '';
+            $order = strlen($order) ? 'ORDER BY '.$order : '';
+            $limit = strlen($limit) ? 'LIMIT '.$limit : '';
+    
+            $query = 'SELECT '.$fields.' FROM '.$this->table. ' '.$where. ' '.$order . ' '.$limit ;
+    
+            return $this->execute($query)->fetch(PDO::FETCH_ASSOC);
+        }
+
+        public function selete($where){
+            $query = 'DELETE FROM '.$this->table. ' WHERE '.$where;
+            $del = $this->execute($query);
+            $del = $del->rowCount();
+
+            if($del == 1){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 
 
