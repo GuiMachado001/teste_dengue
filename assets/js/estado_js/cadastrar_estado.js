@@ -1,4 +1,4 @@
-document.querySelector('.btn_cancelar').addEventListener('click', function(){
+document.querySelector('#btn_cancelar').addEventListener('click', function(){
     window.location = '../listar/estados.html';
 })
 

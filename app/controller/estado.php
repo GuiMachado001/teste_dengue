@@ -25,7 +25,7 @@ class Estado{
         $db = new Database('estado');
 
         if(is_numeric($id) && $id>0){
-            $obj = $db->select('id_estado ='.$id_estado)->fetchObject(self::class);
+            $obj = $db->select('id_estado = '.$id)->fetchObject(self::class);
 
             if($obj){
                 return $obj;
@@ -36,5 +36,17 @@ class Estado{
             return null;
         }
 
+    }
+
+    public function atualizar(){
+        $db = new Database('estado');
+
+        $res = $db->update("id_estado =".$this->id_estado,
+                            [
+                                "nome" => $this->nome,
+                            ]
+                        );
+
+        return $res;
     }
 }

@@ -20,7 +20,7 @@
                 // echo 'conectado com sucesso';
             }
             catch(PDOException $err){
-                die("Connection Failed". $err->getMessage());
+                throw new Exception("Erro de conexão: " . $err->getMessage());
             }
         }
 
@@ -32,7 +32,7 @@
                 $stmt->execute($binds);
                 return $stmt;
             }catch(PDOException $err){
-                die('Connection Failed'. $err->getMessage());
+                throw new Exception("Erro de conexão: " . $err->getMessage());
             }
         }
 
@@ -51,7 +51,7 @@
         }
 
         public function select($where = null, $order = null, $limit = null, $fields = '*'){
-            $where = $where ? 'WHERE' . $where : '';
+            $where = $where ? 'WHERE ' . $where : '';
             $order = $order ? 'ORDER BY' . $order : '';
             $limit = $limit ? 'LIMIT' . $limit : '';
 
@@ -81,6 +81,19 @@
                 return false;
             }
         }
+
+        public function update($where, $array){
+
+            $fields = array_keys($array);
+            $values = array_values($array);
+            //Montar Query
+            $query = 'UPDATE '.$this->table.' SET '.implode('=?,',$fields). '=? WHERE '. $where;
+    
+            $res = $this->execute($query, $values);
+            return $res->rowCount();
+        }
+
+
     }
 
 
