@@ -49,4 +49,9 @@ class Estado{
 
         return $res;
     }
+
+    public function excluir(){
+        $db = new Database('estado');
+        return $db->delete('id_estado ='.$this->id_estado);
+    }
 }
