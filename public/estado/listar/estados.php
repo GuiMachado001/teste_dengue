@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    header('Location: ../../index.php');
+    exit;
+}
+
+$perfilUsuario = $_SESSION['usuario']['perfil'];
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -40,9 +51,7 @@
       
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Home</a>
-              </li>
+
       
               <!-- Dropdown -->
               <li class="nav-item dropdown">
@@ -51,7 +60,7 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="">Listar</a></li>
-                  <li><a class="dropdown-item" href="../cadastrar/cadastrar_estado.html">Cadastrar</a></li>
+                  <li><a class="dropdown-item" href="../cadastrar/cadastrar_estado.php">Cadastrar</a></li>
                 </ul>
               </li>
       
@@ -62,6 +71,12 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Escola</a>
               </li>
+
+
+              <li class="nav-item">
+                <a class="nav-link" href="../../logout.php">Sair</a>
+              </li>
+              <!-- <a href="../../logout.php">Sair</a> -->
             </ul>
           </div>
         </div>

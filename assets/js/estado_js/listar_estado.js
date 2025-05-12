@@ -1,5 +1,5 @@
 document.querySelector('.btn_cadastrar_estado').addEventListener('click', function(){
-    window.location = '../cadastrar/cadastrar_estado.html';
+    window.location = '../cadastrar/cadastrar_estado.php';
 });
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <tr>
                 <td>${estado.nome}</td>
                 <td>
-                    <a href="../editar/editar_estado.html?id_estado=${estado.id_estado}" class="btn btn-sm btn-primary">Editar</a>
+                    <a href="../editar/editar_estado.php?id_estado=${estado.id_estado}" class="btn btn-sm btn-primary">Editar</a>
                     <button class="btn btn-sm btn-danger btn-excluir" data-id="${estado.id_estado}">Excluir</button>
                 </td>
             </tr>

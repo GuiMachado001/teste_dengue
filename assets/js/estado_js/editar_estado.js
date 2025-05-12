@@ -1,5 +1,5 @@
 document.querySelector('#btn_cancelar').addEventListener('click', function(){
-    window.location = '../listar/estados.html';
+    window.location = '../listar/estados.php';
 })
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     if(!id_estado){
         alert('Id do estado não informado!');
-        window.location.href = '../listar/listar_estados.html';
+        window.location.href = '../listar/listar_estados.php';
         return;
     }
 
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function(){
             document.getElementById('input').value = data.nome;
         }else{
             alert('Estado não encontrado');
-            window.location.href = '../listar/listar_estados.html';
+            window.location.href = '../listar/listar_estados.php';
         }
     });
 
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         const nome = document.getElementById('input').value;
 
-        fetch('./editar_estado.php', {
+        fetch('./editar_estado_controlador.php', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 confirmButtonText: "OK"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = '../listar/estados.html'; // caminho para a listagem
+                    window.location.href = '../listar/estados.php'; // caminho para a listagem
                 }
             });
         });

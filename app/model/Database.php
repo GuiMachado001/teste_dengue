@@ -1,19 +1,19 @@
 <?php
 
     class Database{
-        private $conn;
-        private string $local = '185.211.7.154'; 
-        private string $db = 'u122259692_contradenguedb';
-        private string $user = 'u122259692_agentadmindeng';
-        private string $password = '95agen!C0ntr@dengu387';
-        private $table;
-
         // private $conn;
-        // private string $local = 'localhost'; 
-        // private string $db = 'dengue';
-        // private string $user = 'devweb';
-        // private string $password = 'suporte@22';
+        // private string $local = '185.211.7.154'; 
+        // private string $db = 'u122259692_contradenguedb';
+        // private string $user = 'u122259692_agentadmindeng';
+        // private string $password = '95agen!C0ntr@dengu387';
         // private $table;
+
+        private $conn;
+        private string $local = 'localhost'; 
+        private string $db = 'dengue';
+        private string $user = 'devweb';
+        private string $password = 'suporte@22';
+        private $table;
 
         function __construct($table = null){
             $this->table = $table;

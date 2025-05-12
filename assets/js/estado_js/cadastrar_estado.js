@@ -1,5 +1,5 @@
 document.querySelector('#btn_cancelar').addEventListener('click', function(){
-    window.location = '../listar/estados.html';
+    window.location = '../listar/estados.php';
 })
 
 document.getElementById('form_cadastro_estado').addEventListener('submit', function(e){
@@ -9,7 +9,7 @@ document.getElementById('form_cadastro_estado').addEventListener('submit', funct
         nome: this.nome.value
     };
 
-    fetch("./cadastrar_estado.php",{
+    fetch("./cadastrar_estado_controlador.php",{
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(dados)
@@ -41,7 +41,7 @@ document.getElementById('form_cadastro_estado').addEventListener('submit', funct
                     document.getElementById('form_cadastro_estado').reset();
                 });
                 document.getElementById('btnIrParaListagem').addEventListener('click', () => {
-                    window.location = '../listar/estados.html';
+                    window.location = '../listar/estados.php';
                 });
             }
         });

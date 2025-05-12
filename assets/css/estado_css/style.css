@@ -9,6 +9,11 @@ body{
     height: calc(100vh - 80px);
     background-color: #18181b;
 }
+
+a{
+    text-decoration: none;
+}
+
 .navbar{
     position: fixed;
     top: 0;

@@ -1,20 +1,109 @@
 <?php
+session_start();
 
-require_once '../../../app/controller/estado.php';
-
-$data = json_decode(file_get_contents('php://input'), true);
-
-if(!$data || !isset($data['id_estado']) || !isset($data['nome'])){
-    echo 'dados inválidos';
+if (!isset($_SESSION['usuario'])) {
+    header('Location: /teste_dengue/public/index.php');
     exit;
 }
+?>
 
-$estado = new Estado();
-$estado->id_estado = intval($data['id_estado']);
-$estado->nome = $data['nome'];
 
-if($estado->atualizar()){
-    echo json_encode(['success' => true, 'message' => 'Estado atualizado com sucesso']);
-}else{
-    echo 'Erro ao atualizar o estado.';
-}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agente 360</title>
+    <link rel="shortcut icon" type="image/png" href="../../../assets/img/logo_agente360.jpg">
+
+    <!-- Link para o Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Link para o Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+
+    <!-- Css da pagina -->
+     <link rel="stylesheet" href="../../../assets/css/estado_css/style.css">
+     <link rel="stylesheet" href="../../../assets/css/estado_css/editar_estado.css">
+
+         <!-- Js do alert sweetalert2 -->
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Js da pagina -->
+     <script src="../../../assets/js/estado_js/editar_estado.js" defer></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <div class="containerImgLogo">
+            <img class="img_logo" src="../../../assets/img/logo_agente360.jpg" alt="">
+          </div>
+          
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+    
+      
+              <!-- Dropdown -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Estado
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="../listar/estados.php">Listar</a></li>
+                  <li><a class="dropdown-item" href="../cadastrar/cadastrar_estado.php">Cadastrar</a></li>
+                </ul>
+              </li>
+      
+              <li class="nav-item">
+                <a class="nav-link" href="#">Cidades</a>
+              </li>
+      
+              <li class="nav-item">
+                <a class="nav-link" href="#">Escola</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="../../logout.php">Sair</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <section class="main">
+
+      <!-- <div class="container_title_pagina">
+        <span class="span_container_title_pagina">📋 Editar Estado</span>
+      </div> -->
+
+        <form id="form_editar_estado" class="form_editar_estado">
+            <input type="hidden" id="id_estado">
+
+            <div class="continer_inp_nome">
+
+              <div class="input-container">
+
+                <input type="text" id="input" name="nome" required="">
+                <label for="input" class="label">Nome do Estado</label>
+                <div class="underline"></div> 
+
+              </div>
+
+          </div>
+
+            <div class="container_buttons">
+              <button class="btn_cancelar" id="btn_cancelar"> Cancelar </button>
+              <button class="btn_verde" type="submit" name="Cadastrar" > Salvar </button>
+          </div>
+
+        </form>
+
+    </section>
+
+
+</body>
+</html>
