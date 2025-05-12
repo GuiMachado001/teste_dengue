@@ -13,7 +13,9 @@ if (!isset($_SESSION['usuario'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agente 360</title>
-    <link rel="shortcut icon" type="image/png" href="../../assets/img/logo_agente360.jpg">
+
+    <!-- img topo do site -->
+    <link rel="shortcut icon" type="image/png" href="../../../assets/img/logo_agente360.jpg">
 
     <!-- Link para o Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -46,13 +48,16 @@ if (!isset($_SESSION['usuario'])) {
             <ul class="navbar-nav">
       
               <!-- Dropdown -->
+
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Estado
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="../listar/estados.php">Listar</a></li>
-                  <li><a class="dropdown-item" href="">Cadastrar</a></li>
+                  <?php if($perfilUsuario == 1) { ?>
+                    <li><a class="dropdown-item" href="">Cadastrar</a></li>
+                  <?php } ?>
                 </ul>
               </li>
       

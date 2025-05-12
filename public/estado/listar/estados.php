@@ -15,6 +15,8 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agente 360</title>
+
+    <!-- img topo do site -->
     <link rel="shortcut icon" type="image/png" href="../../../assets/img/logo_agente360.jpg">
 
     <!-- Link para o Bootstrap CSS -->
@@ -65,7 +67,9 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="">Listar</a></li>
-                  <li><a class="dropdown-item" href="../cadastrar/cadastrar_estado.php">Cadastrar</a></li>
+                  <?php if($perfilUsuario == 1) { ?>
+                    <li><a class="dropdown-item" href="../cadastrar/cadastrar_estado.php">Cadastrar</a></li>
+                  <?php } ?>
                 </ul>
               </li>
       

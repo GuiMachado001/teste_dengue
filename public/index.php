@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Agente 360</title>
+    
+    <!-- img topo do site -->
+    <link rel="shortcut icon" type="image/png" href="../assets/img/logo_agente360.jpg">
 
     <!-- Css da pagina -->
     <link rel="stylesheet" href="../assets/css/login_css/login.css">
@@ -15,7 +18,7 @@
     <!-- Js da pagina -->
      <script src="../assets/js/login_js/login.js"></script>
 
-         <link rel="shortcut icon" type="image/png" href="../assets/img/logo_agente360.jpg">
+
 
 </head>
 
@@ -23,7 +26,7 @@
 
     <div class="loginBox">
         <img class="user" src="../assets/img/mosquito.png" height="100px" width="100px">
-        <h3>Sign in here</h3>
+        <h3>Faça o login aqui</h3>
         <form action="./autenticacao.php" method="POST">
             <div class="inputBox"> 
                 <input id="uname" type="email" name="email" placeholder="Email" required>
