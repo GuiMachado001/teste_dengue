@@ -7,15 +7,27 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(response => response.json())
     .then(estados => {
         const tbody = document.querySelector(".container_lista_estados tbody");
-        tbody.innerHTML = estados.map(estado => `
-            <tr>
-                <td>${estado.nome}</td>
-                <td>
-                    <a href="../editar/editar_estado.php?id_estado=${estado.id_estado}" class="btn btn-sm btn-primary">Editar</a>
-                    <button class="btn btn-sm btn-danger btn-excluir" data-id="${estado.id_estado}">Excluir</button>
-                </td>
-            </tr>
-        `).join('');
+        tbody.innerHTML = estados.map(estado => {
+            let acoes = '';
+if (perfilUsuario === 1) {
+    acoes = `
+        <a href="../editar/editar_estado.php?id_estado=${estado.id_estado}" class="btn btn-sm btn-primary">Editar</a>
+        <button class="btn btn-sm btn-danger btn-excluir" data-id="${estado.id_estado}">Excluir</button>
+    `;
+} else {
+    acoes = `
+        <a class="btn btn-sm btn-secondary disabled" tabindex="-1" aria-disabled="true">Editar</a>
+        <button class="btn btn-sm btn-secondary" disabled>Excluir</button>
+    `;
+}
+
+            return `
+                <tr>
+                    <td>${estado.nome}</td>
+                    <td>${acoes}</td>
+                </tr>
+            `;
+        }).join('');
     })
     .catch(error => console.error("Erro ao carregar os estados: ", error));
 });

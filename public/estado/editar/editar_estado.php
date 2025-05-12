@@ -26,6 +26,7 @@ if (!isset($_SESSION['usuario'])) {
      <link rel="stylesheet" href="../../../assets/css/estado_css/style.css">
      <link rel="stylesheet" href="../../../assets/css/estado_css/editar_estado.css">
 
+
          <!-- Js do alert sweetalert2 -->
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -103,7 +104,6 @@ if (!isset($_SESSION['usuario'])) {
         </form>
 
     </section>
-
 
 </body>
 </html>

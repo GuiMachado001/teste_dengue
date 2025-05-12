@@ -5,6 +5,11 @@ body {
     height: 100vh;
     font-family: sans-serif;
     overflow: hidden;
+
+    background-image: url(../../img/logoAgente360qualidade.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 @media screen and (max-width: 600px) {
@@ -30,6 +35,8 @@ body {
     border-radius: 10px;
     padding: 40px;
     box-sizing: border-box;
+
+    
 }
 
 /* User Icon */

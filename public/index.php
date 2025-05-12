@@ -14,12 +14,15 @@
 
     <!-- Js da pagina -->
      <script src="../assets/js/login_js/login.js"></script>
+
+         <link rel="shortcut icon" type="image/png" href="../assets/img/logo_agente360.jpg">
+
 </head>
 
 <body>
 
     <div class="loginBox">
-        <img class="user" src="../assets/img/logoAgente360.png" height="100px" width="100px">
+        <img class="user" src="../assets/img/mosquito.png" height="100px" width="100px">
         <h3>Sign in here</h3>
         <form action="./autenticacao.php" method="POST">
             <div class="inputBox"> 
@@ -48,6 +51,7 @@
 </svg>
 		
 </body>
+
 <?php if (isset($_GET['erro']) && $_GET['erro'] == 1): ?>
 <script>
     Swal.fire({

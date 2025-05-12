@@ -2,11 +2,11 @@
 session_start();
 
 if (!isset($_SESSION['usuario'])) {
-    header('Location: ../../index.php');
+    header('Location: /teste_dengue/public/index.php');
     exit;
 }
 
-$perfilUsuario = $_SESSION['usuario']['perfil'];
+$perfilUsuario = $_SESSION['usuario']['perfil']; 
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +26,11 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
     <!-- Css da pagina -->
     <link rel="stylesheet" href="../../../assets/css/estado_css/listar_estados.css">
     <link rel="stylesheet" href="../../../assets/css/estado_css/style.css">
+
+    <!-- Definindo variável JS com valor do PHP -->
+    <script>
+      const perfilUsuario = <?= $perfilUsuario ?>;
+    </script>
 
     <!-- Js do alert sweetalert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -83,9 +88,14 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
       </nav>
 
     <section class="main">
-        <div class="container_btn_cadastrar_estado">
-            <button class="btn_cadastrar_estado"> Cadastrar </button>
-        </div>
+
+<div class="container_btn_cadastrar_estado">
+    <button 
+        class="btn_cadastrar_estado" 
+        <?php if($perfilUsuario != 1) echo 'disabled style="background-color: grey; cursor: not-allowed;"'; ?>>
+        Cadastrar
+    </button>
+</div>
 
 
         <div class="container_title_pagina">
