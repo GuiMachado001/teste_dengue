@@ -29,7 +29,7 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
     <link rel="stylesheet" href="../../../assets/css/estado_css/listar_estados.css">
     <link rel="stylesheet" href="../../../assets/css/estado_css/style.css">
 
-    <!-- Definindo variável JS com valor do PHP -->
+    <!-- variável JS com valor do PHP -->
     <script>
       const perfilUsuario = <?= $perfilUsuario ?>;
     </script>

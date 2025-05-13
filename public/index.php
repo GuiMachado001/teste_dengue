@@ -37,7 +37,7 @@
     </div>
 
 
-    <svg width="100%" height="100%" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" overflow="auto" shape-rendering="auto" fill="#ffffff">
+    <svg class="wave" width="100%" height="100%" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" overflow="auto" shape-rendering="auto" fill="#ffffff">
   <defs>
    <path id="wavepath" d="M 0 2000 0 500 Q 105 421 210 500 t 210 0 210 0 210 0 210 0 210 0 210 0  v1000 z" />
    <path id="motionpath" d="M -420 0 0 0" /> 

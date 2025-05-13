@@ -35,8 +35,12 @@ body {
     border-radius: 10px;
     padding: 40px;
     box-sizing: border-box;
+    z-index: 10;
 
-    
+    border: 1px solid rgba(1, 61, 139, 0.65);
+    box-shadow: 9px 13px 53px 11px rgba(1, 61, 139, 0.65);
+    -webkit-box-shadow: 9px 13px 53px 11px rgba(1, 61, 139, 0.65);
+    -moz-box-shadow: 9px 13px 53px 11px rgba(1, 61, 139, 0.65);
 }
 
 /* User Icon */
@@ -110,6 +114,7 @@ h3 {
     text-decoration: none;
     text-align: center;
     display: block;
+    
 }
 
 a:hover {
@@ -119,4 +124,8 @@ a:hover {
 /* Paragraph */
 p {
     color: #0000ff;
+}
+
+.wave{
+    filter: drop-shadow(0 -5mm 6mm rgb(0, 6, 78));
 }
