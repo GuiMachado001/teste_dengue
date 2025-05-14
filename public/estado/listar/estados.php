@@ -60,7 +60,7 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
             <ul class="navbar-nav">
 
       
-              <!-- Dropdown -->
+              <!-- Dropdown Estado -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Estado
@@ -73,8 +73,17 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
                 </ul>
               </li>
       
-              <li class="nav-item">
-                <a class="nav-link" href="#">Cidades</a>
+              <!-- Dropdown Cidade -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Cidade
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="../../cidade/listar/listar_cidade.php">Listar</a></li>
+                  <?php if($perfilUsuario == 1) { ?>
+                    <li><a class="dropdown-item" href="../../cidade/cadastrar/cadastrar_cidade.php">Cadastrar</a></li>
+                  <?php } ?>
+                </ul>
               </li>
       
               <li class="nav-item">

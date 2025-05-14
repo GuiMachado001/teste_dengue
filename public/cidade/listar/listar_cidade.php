@@ -9,7 +9,6 @@ if (!isset($_SESSION['usuario'])) {
 $perfilUsuario = $_SESSION['usuario']['perfil']; 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -27,15 +26,24 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
 
     <!-- Css da pagina -->
-     <link rel="stylesheet" href="../../../assets/css/estado_css/style.css">
-     <link rel="stylesheet" href="../../../assets/css/estado_css/editar_estado.css">
+    <link rel="stylesheet" href="../../../assets/css/cidade_css/listar_cidade.css">
+    <link rel="stylesheet" href="../../../assets/css/cidade_css/style.css">
 
+    <!-- variável JS com valor do PHP -->
+    <script>
+      const perfilUsuario = <?= $perfilUsuario ?>;
+    </script>
 
-         <!-- Js do alert sweetalert2 -->
-     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Js do alert sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Js da pagina -->
-     <script src="../../../assets/js/estado_js/editar_estado.js" defer></script>
+     <script src="../../../assets/js/cidade_js/listar_cidade.js" defer></script>
+     <!-- <script src="../../../assets/js/cidade_js/excluir_cidade.js" defer></script> -->
+
+    <!-- Fonte -->
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -58,7 +66,7 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
                   Estado
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="../../estado/listar/estado.php">Listar</a></li>
+                  <li><a class="dropdown-item" href="../../estado/listar/estados.php">Listar</a></li>
                   <?php if($perfilUsuario == 1) { ?>
                     <li><a class="dropdown-item" href="../../estado/cadastrar/cadastrar_estado.php">Cadastrar</a></li>
                   <?php } ?>
@@ -71,9 +79,9 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
                   Cidade
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="../../cidade/listar/listar_cidade.php">Listar</a></li>
+                  <li><a class="dropdown-item" href="">Listar</a></li>
                   <?php if($perfilUsuario == 1) { ?>
-                    <li><a class="dropdown-item" href="../cadastrar/cadastrar_estado.php">Cadastrar</a></li>
+                    <li><a class="dropdown-item" href="../cadastrar/cadastrar_cidade.php">Cadastrar</a></li>
                   <?php } ?>
                 </ul>
               </li>
@@ -91,35 +99,38 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
           </div>
         </div>
       </nav>
+
     <section class="main">
 
-      <!-- <div class="container_title_pagina">
-        <span class="span_container_title_pagina">📋 Editar Estado</span>
-      </div> -->
+<div class="container_btn_cadastrar_cidade">
+    <button 
+        class="btn_cadastrar_cidade" 
+        <?php if($perfilUsuario != 1) echo 'disabled style="background-color: grey; cursor: not-allowed;"'; ?>>
+        Cadastrar
+    </button>
+</div>
 
-        <form id="form_editar_estado" class="form_editar_estado">
-            <input type="hidden" id="id_estado">
 
-            <div class="continer_inp_nome">
+        <div class="container_title_pagina">
+          <span class="span_container_title_pagina">📋 cidades Cadastrados</span>
+        </div>
 
-              <div class="input-container">
+        <div class="container_lista_cidades">
+          <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
 
-                <input type="text" id="input" name="nome" required="">
-                <label for="input" class="label">Nome do Estado</label>
-                <div class="underline"></div> 
-
-              </div>
-
-          </div>
-
-            <div class="container_buttons">
-              <button class="btn_cancelar" id="btn_cancelar"> Cancelar </button>
-              <button class="btn_verde" type="submit" name="Cadastrar" > Salvar </button>
-          </div>
-
-        </form>
-
+            </tbody>
+        </table>
+        </div>
     </section>
+
 
 </body>
 </html>
