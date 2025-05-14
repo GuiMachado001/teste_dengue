@@ -1,27 +1,39 @@
 <?php
 
     class Database{
-        // private $conn;
-        // private string $local = '185.211.7.154'; 
-        // private string $db = 'u122259692_contradenguedb';
-        // private string $user = 'u122259692_agentadmindeng';
-        // private string $password = '95agen!C0ntr@dengu387';
-        // private $table;
+    private $conn;
+    private $table;
 
-        private $conn;
-        private string $local = 'localhost'; 
-        private string $db = 'dengue';
-        private string $user = 'devweb';
-        private string $password = 'suporte@22';
-        private $table;
+    private string $local;
+    private string $db;
+    private string $user;
+    private string $password;
 
-        function __construct($table = null){
+        function __construct($table = null) {
             $this->table = $table;
+            $this->set_conn();
             $this->conecta();
+        }
+
+        function set_conn() {
+            $envPath = dirname(__DIR__, 2) . '/.env'; // Sobe duas pastas
+            $env = parse_ini_file($envPath);
+
+            if (!$env) {
+                throw new Exception("Erro ao carregar o arquivo .env. Verifique a sintaxe.");
+            }
+
+            $this->local = $env['DB_HOST'];
+            $this->db = $env['DB_DATABASE'];
+            $this->user = $env['DB_USER'];
+            $this->password = $env['DB_PASSWORD'];
         }
 
         public function conecta(){
             try{
+
+                $this->set_conn();
+
                 $this->conn = new PDO("mysql:host=".$this->local.";dbname=$this->db",$this->user,$this->password);
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 // echo 'conectado com sucesso';
