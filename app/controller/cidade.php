@@ -57,18 +57,11 @@ class Cidade{
         return $db->delete('id_cidade ='.$this->id_cidade);
     }
 
-public function buscar_com_estado() {
-        $sql = "
-            SELECT 
-                cidade.id_cidade,
-                cidade.nome AS nome_cidade,
-                estado.nome AS nome_estado
-            FROM cidade
-            INNER JOIN estado ON cidade.id_estado = estado.id_estado
-        ";
+    public function buscar_com_estado() {
+        $db = new Database('');
 
-        $db = new Database(); // sem passar tabela, pois a query é completa
-        $stmt = $db->execute($sql); // sem binds pois não há parâmetros aqui
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // $cidade_estado = $db->select_cidade_estado();
+        
+        return $db->select_cidade_estado();
     }
 }

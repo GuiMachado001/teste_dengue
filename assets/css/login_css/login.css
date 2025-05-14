@@ -69,18 +69,20 @@ h3 {
     padding-left: 20px;
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px solid #262626;
+    border-bottom: 2px solid rgba(255, 166, 0, 0.63);
     outline: none;
+    color: #FEB028;
 }
 
 .loginBox input[type="email"]:hover, .loginBox input[type="password"]:hover {
-    color: #FEB028;
+
     border: 1px solid #FEB028;
     box-shadow: 0 0 5px rgba(0, 255, 0, .3), 0 0 10px rgba(0, 255, 0, .2), 0 0 15px rgba(0, 255, 0, .1), 0 2px 0 black;
 }
 
-.loginBox input[type="text"]:focus, .loginBox input[type="password"]:focus {
-    border-bottom: 2px solid #FEB028;
+.loginBox input[type="email"]:focus, .loginBox input[type="password"]:focus {
+    border: 1px solid #FEB028;
+    box-shadow: 0 0 5px rgba(0, 255, 0, .3), 0 0 10px rgba(0, 255, 0, .2), 0 0 15px rgba(0, 255, 0, .1), 0 2px 0 black;
 }
 
 /* Input Box */
@@ -128,4 +130,5 @@ p {
 
 .wave{
     filter: drop-shadow(0 -5mm 6mm rgb(0, 6, 78));
+    opacity: 0.9;
 }

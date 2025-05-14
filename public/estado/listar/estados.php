@@ -62,7 +62,7 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
       
               <!-- Dropdown Estado -->
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle title_dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Estado
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -75,7 +75,7 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
       
               <!-- Dropdown Cidade -->
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle title_dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Cidade
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -87,12 +87,12 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
               </li>
       
               <li class="nav-item">
-                <a class="nav-link" href="#">Escola</a>
+                <a class="nav-link title_dropdown" href="#">Escola</a>
               </li>
 
 
               <li class="nav-item">
-                <a class="nav-link" href="../../logout.php">Sair</a>
+                <a class="nav-link title_dropdown" href="../../logout.php">Sair</a>
               </li>
               <!-- <a href="../../logout.php">Sair</a> -->
             </ul>
@@ -112,14 +112,22 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
 
 
         <div class="container_title_pagina">
-          <span class="span_container_title_pagina">📋 Estados Cadastrados</span>
+          <span class="span_container_title_pagina">
+            <div class="container_img">
+              <img src="../../../assets/img/mosquito.png" alt="">
+            </div>
+              Estados Cadastrados
+            <div class="container_img">
+              <img src="../../../assets/img/mosquito.png" alt="">
+            </div>
+            </span>
         </div>
 
         <div class="container_lista_estados">
           <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Nome</th>
+                    <th scope="col">Estado</th>
                     <th scope="col">Ações</th>
                 </tr>
             </thead>

@@ -89,16 +89,18 @@
             return $this->execute($query)->fetch(PDO::FETCH_ASSOC);
         }
 
-        public function selete($where){
-            $query = 'DELETE FROM '.$this->table. ' WHERE '.$where;
-            $del = $this->execute($query);
-            $del = $del->rowCount();
+        public function select_cidade_estado(){
+            $query = "
+                SELECT 
+                    cidade.id_cidade,
+                    cidade.nome AS nome_cidade,
+                    estado.nome AS nome_estado
+                FROM cidade
+                INNER JOIN estado ON cidade.id_estado = estado.id_estado
+                ORDER BY cidade.nome ASC
+            ";
+            return $this->execute($query)->fetchAll(PDO::FETCH_ASSOC);
 
-            if($del == 1){
-                return true;
-            }else{
-                return false;
-            }
         }
 
         public function update($where, $array){

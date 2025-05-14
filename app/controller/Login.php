@@ -2,14 +2,14 @@
 
 require_once __DIR__ . '/../model/Database.php';
 
-class Usuario{
+class Login{
     public function autenticar($email, $senha){
         $db = new Database('usuario');
-        $usuario = $db->select("email = '$email'")->fetchObject();
+        $login = $db->select("email = '$email'")->fetchObject();
 
         // Validação simples, sem hash
-        if ($usuario && $usuario->senha === $senha) {
-            return $usuario;
+        if ($login && $login->senha === $senha) {
+            return $login;
         } else {
             return null;
         }
@@ -18,12 +18,12 @@ class Usuario{
 
         // validação com criptografia
     // public function autenticar($email, $senha){
-    //     $db = new Database('usuario');
+    //     $db = new Database('login');
 
-    //     $usuario = $db->select("email = '$email'")->fetchObject();
+    //     $login = $db->select("email = '$email'")->fetchObject();
 
-    //     if($usuario && password_verify($senha, $usuario->senha)){
-    //         return $usuario;
+    //     if($login && password_verify($senha, $login->senha)){
+    //         return $login;
     //     }else{
     //         return null;
     //     }

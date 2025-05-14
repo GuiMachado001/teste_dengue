@@ -4,15 +4,15 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
-require __DIR__ . '/../app/controller/usuario.php';
+require __DIR__ . '/../app/controller/Login.php';
 
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    $usuarioObj = new Usuario();
-    $usuario = $usuarioObj->autenticar($email, $senha);
+    $loginObj = new Login();
+    $usuario = $loginObj->autenticar($email, $senha);
 
     if($usuario){
         $_SESSION['usuario'] = [

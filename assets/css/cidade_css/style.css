@@ -14,6 +14,8 @@ a{
     text-decoration: none;
 }
 
+
+
 .navbar{
     position: fixed;
     top: 0;
@@ -42,6 +44,8 @@ a{
 .img_logo{
     width: 100%;
     border-radius: 50%;
+    border: 2px solid orange;
+
 }
 
 .container_buttons{
@@ -185,6 +189,11 @@ a{
 
 .container_title_pagina{
     padding: 20px;
+
+}
+
+.title_dropdown{
+    color: orange !important;
 }
 
 .span_container_title_pagina {
@@ -192,10 +201,22 @@ a{
     font-size: 32px;
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
-    color: #fff;
+    color: orange;
     padding: 10px 20px;
     display: inline-block;
+        display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.container_img{
+    width: 50px;
+    height: 50px;
+}
+.container_img img{
+    width: 100%;
+}
+
 
 /* Canto superior direito */
 .span_container_title_pagina::before {
@@ -205,8 +226,8 @@ a{
     right: 0;
     width: 50px;
     height: 50px;
-    border-top: 4px solid #fff;
-    border-right: 4px solid #fff;
+    border-top: 4px solid orange;
+    border-right: 4px solid orange;
 }
 
 /* Canto inferior esquerdo */
@@ -217,8 +238,8 @@ a{
     left: 0;
     width: 50px;
     height: 50px;
-    border-left: 4px solid #fff;
-    border-bottom: 4px solid #fff;
+    border-left: 4px solid orange;
+    border-bottom: 4px solid orange;
 }
 
 .container_buttons{
