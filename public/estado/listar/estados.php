@@ -6,7 +6,7 @@ if (!isset($_SESSION['usuario'])) {
     exit;
 }
 
-$perfilUsuario = $_SESSION['usuario']['perfil']; 
+$perfilUsuario = $_SESSION['usuario']['perfil'];
 ?>
 
 <!DOCTYPE html>

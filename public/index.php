@@ -23,6 +23,9 @@
 </head>
 
 <body>
+<div class="container_img_background">
+    <img class="img_logo_background" src="../assets/img/logoAgente360qualidade.png" alt="">
+</div>
 
     <div class="loginBox">
         <img class="user" src="../assets/img/mosquito.png" height="100px" width="100px">
