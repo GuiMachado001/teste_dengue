@@ -32,7 +32,8 @@
                 <input id="uname" type="email" name="email" placeholder="Email" required>
                 <input id="pass" type="password" name="senha" placeholder="Senha" required> 
             </div> 
-            <input type="submit" name="Login" value="Login">
+            <!-- <input type="submit" name="Login" value="Login"> -->
+            <button type="submit" name="Login">Login</button>
         </form>
     </div>
 

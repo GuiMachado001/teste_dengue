@@ -100,7 +100,8 @@ h3 {
 }
 
 /* Submit Button */
-.loginBox input[type="submit"] {
+.loginBox button[type="submit"] {
+    width: 100%;
     border: none;
     outline: none;
     height: 40px;
