@@ -28,7 +28,15 @@ body {
 .img_logo_background{
     width: 60%;
 filter: drop-shadow(-6px 9px 26px #fff);
+}
 
+.img_fesp_logo{
+    width: 200px;
+
+    top: 0;
+    left: 0;
+
+    position: absolute;
 }
 
 @media screen and (max-width: 600px) {
@@ -99,12 +107,12 @@ h3 {
 .loginBox input[type="email"]:hover, .loginBox input[type="password"]:hover {
 
     border: 1px solid #FEB028;
-    box-shadow: 0 0 5px rgba(0, 255, 0, .3), 0 0 10px rgba(0, 255, 0, .2), 0 0 15px rgba(0, 255, 0, .1), 0 2px 0 black;
+    box-shadow: 0 0 5px #FEB028, 0 0 10px rgba(0, 255, 0, .2), 0 0 15px rgba(0, 255, 0, .1), 0 2px 0 black;
 }
 
 .loginBox input[type="email"]:focus, .loginBox input[type="password"]:focus {
     border: 1px solid #FEB028;
-    box-shadow: 0 0 5px rgba(0, 255, 0, .3), 0 0 10px rgba(0, 255, 0, .2), 0 0 15px rgba(0, 255, 0, .1), 0 2px 0 black;
+    box-shadow: 0 0 5px #FEB028, 0 0 10px rgba(0, 255, 0, .2), 0 0 15px rgba(0, 255, 0, .1), 0 2px 0 black;
 }
 
 /* Input Box */
