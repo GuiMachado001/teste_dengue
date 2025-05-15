@@ -39,7 +39,7 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
 
     <!-- Js da pagina -->
      <script src="../../../assets/js/cidade_js/listar_cidade.js" defer></script>
-     <!-- <script src="../../../assets/js/cidade_js/excluir_cidade.js" defer></script> -->
+     <script src="../../../assets/js/cidade_js/excluir_cidade.js" defer></script>
 
     <!-- Fonte -->
      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">

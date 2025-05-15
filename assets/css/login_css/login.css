@@ -9,7 +9,7 @@ body {
     background-image: url(../../img/logoAgente360qualidade.png);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: auto;
 }
 
 @media screen and (max-width: 600px) {
@@ -31,16 +31,19 @@ body {
     transform: translate(-50%, -50%);
     width: 350px;
     min-height: 200px;
-    background: #000;
     border-radius: 10px;
     padding: 40px;
     box-sizing: border-box;
     z-index: 10;
 
-    border: 1px solid rgba(1, 61, 139, 0.65);
-    box-shadow: 9px 13px 53px 11px rgba(1, 61, 139, 0.65);
-    -webkit-box-shadow: 9px 13px 53px 11px rgba(1, 61, 139, 0.65);
-    -moz-box-shadow: 9px 13px 53px 11px rgba(1, 61, 139, 0.65);
+background: rgba(0, 0, 0, 0.53);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(12.1px);
+-webkit-backdrop-filter: blur(12.1px);
+border: 1px solid rgba(0, 0, 0, 0.3);
+
+
 }
 
 /* User Icon */

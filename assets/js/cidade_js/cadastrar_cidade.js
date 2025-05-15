@@ -65,7 +65,7 @@ document.getElementById('form_cadastro_cidade').addEventListener('submit', funct
                     document.getElementById('form_cadastro_cidade').reset();
                 });
                 document.getElementById('btnIrParaListagem').addEventListener('click', () => {
-                    window.location = '../listar/cidades.php';
+                    window.location = '../listar/listar_cidade.php';
                 });
             }
         });
