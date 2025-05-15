@@ -30,15 +30,6 @@ body {
 filter: drop-shadow(-6px 9px 26px #fff);
 }
 
-.img_fesp_logo{
-    width: 200px;
-
-    top: 0;
-    left: 0;
-
-    position: absolute;
-}
-
 @media screen and (max-width: 600px) {
     body {
         background-size: cover;

@@ -46,6 +46,7 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
 
 </head>
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <div class="containerImgLogo">
@@ -99,7 +100,11 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
           </div>
         </div>
       </nav>
-
+      
+      
+          <div class="cotainer_img_logo_fesp">
+            <img class="img_logo_background" src="../../../assets/img/fesplogo.png" alt="">
+          </div>
     <section class="main">
 
 <div class="container_btn_cadastrar_estado">

@@ -25,7 +25,6 @@
 <body>
 <div class="container_img_background">
     <img class="img_logo_background" src="../assets/img/logoAgente360qualidade.png" alt="">
-    <img class="img_fesp_logo" src="../assets/img/fesplogo.png" alt="">
 </div>
 
     <div class="loginBox">
