@@ -12,7 +12,7 @@
 }
 
 .btn_cadastrar_cidade {
-    --color: #038C3E;
+    --color: orange;
     --color2: rgb(255, 255, 255);
     padding: 0.8em 1.75em;
     background-color: transparent;

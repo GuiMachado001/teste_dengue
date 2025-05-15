@@ -29,13 +29,13 @@ a{
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border: 1px solid red;
+    z-index: -2;
 }
 
 .img_logo_background{
     width: 60%;
-filter: drop-shadow(-6px 9px 26px #fff);
-z-index: -2;
+    filter: opacity(0.3);
+    z-index: -2;
 }
 
 

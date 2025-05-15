@@ -14,6 +14,26 @@ a{
     text-decoration: none;
 }
 
+.cotainer_img_logo_fesp{
+    width: 100%;
+    height: calc(100vh - 80px);
+    /* border: 1px solid red; */
+
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: -2;
+}
+
+.img_logo_background{
+    width: 60%;
+    filter: opacity(0.3);
+
+}
+
 
 
 .navbar{

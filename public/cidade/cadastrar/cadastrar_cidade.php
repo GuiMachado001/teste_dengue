@@ -90,6 +90,10 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
         </div>
       </nav>
 
+
+    <div class="cotainer_img_logo_fesp">
+      <img class="img_logo_background" src="../../../assets/img/fesplogo.png" alt="">
+    </div>
     <section class="main">
         <form id="form_cadastro_cidade" method="POST" class="form_cadastrar_cidade"> 
 

@@ -102,18 +102,18 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
       </nav>
       
       
-          <div class="cotainer_img_logo_fesp">
-            <img class="img_logo_background" src="../../../assets/img/fesplogo.png" alt="">
-          </div>
+    <div class="cotainer_img_logo_fesp">
+      <img class="img_logo_background" src="../../../assets/img/fesplogo.png" alt="">
+    </div>
     <section class="main">
 
-<div class="container_btn_cadastrar_estado">
-    <button 
-        class="btn_cadastrar_estado" 
-        <?php if($perfilUsuario != 1) echo 'disabled style="background-color: grey; cursor: not-allowed;"'; ?>>
-        Cadastrar
-    </button>
-</div>
+    <div class="container_btn_cadastrar_estado">
+        <button 
+            class="btn_cadastrar_estado" 
+            <?php if($perfilUsuario != 1) echo 'disabled style="background-color: grey; cursor: not-allowed;"'; ?>>
+            Cadastrar
+        </button>
+    </div>
 
 
         <div class="container_title_pagina">
@@ -129,7 +129,7 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
         </div>
 
         <div class="container_lista_estados">
-          <table class="table table-striped">
+          <table class="table table-dark table-striped">
             <thead>
                 <tr>
                     <th scope="col">Estado</th>
