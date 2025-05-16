@@ -129,7 +129,7 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
 
 
         <div class="container_lista_cidades">
-          <table class="table table-striped">
+          <table class="table table-dark table-striped">
             <thead>
                 <tr>
                     <th scope="col">Cidade</th>

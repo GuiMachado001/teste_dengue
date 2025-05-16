@@ -288,6 +288,13 @@ a{
 }
 
 
+
+@media (min-width: 0px) and (max-width: 780px){
+    .img_logo_background{
+        width: 1200px;
+        /* background-color: red; */
+    }
+}
 @media (min-width: 351px) and (max-width: 510px) {
     .span_container_title_pagina{
         font-size: 20px;
