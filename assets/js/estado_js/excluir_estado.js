@@ -30,11 +30,17 @@ document.addEventListener('click', function(e) {
                             window.location.reload();
                         });
                     } else {
+                        let mensagem = 'Não foi possível excluir o estado.';
+
+                        if (response.message && response.message.includes('foreign key constraint fails')) {
+                            mensagem = 'Este estado possui cidades vinculadas. Para excluí-lo, exclua primeiro as cidades relacionadas.';
+                        }
+
                         Swal.fire({
                             title: 'Erro!',
-                            text: response.message || 'Não foi possível excluir o estado.',
+                            text: mensagem,
                             icon: 'error',
-                            confirmButtonText: 'OK'
+                            confirmButtonText: 'Entendi'
                         });
                     }
                 })

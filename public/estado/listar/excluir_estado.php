@@ -1,30 +1,44 @@
 <?php
-
-require_once '../../../app/controller/estado.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 header('Content-Type: application/json');
 
-// Permitir apenas requisições DELETE
-if ($_SERVER['REQUEST_METHOD'] !== 'DELETE') {
-    echo json_encode(['success' => false, 'message' => 'Método não permitido']);
-    http_response_code(405); // Method Not Allowed
-    exit;
-}
+try {
+    require_once '../../../app/controller/estado.php';
 
-// Ler o corpo JSON
-$input = json_decode(file_get_contents('php://input'), true);
-$id_estado = $input['id_estado'] ?? null;
+    if ($_SERVER['REQUEST_METHOD'] !== 'DELETE') {
+        http_response_code(405);
+        echo json_encode(['success' => false, 'message' => 'Método não permitido']);
+        exit;
+    }
 
-if (!$id_estado) {
-    echo json_encode(['success' => false, 'message' => 'Id não fornecido']);
-    exit;
-}
+    $input = json_decode(file_get_contents('php://input'), true);
+    $id_estado = $input['id_estado'] ?? null;
 
-$estado = new Estado();
-$estado->id_estado = $id_estado;
+    if (!$id_estado) {
+        echo json_encode(['success' => false, 'message' => 'Id não fornecido']);
+        exit;
+    }
 
-if ($estado->excluir()) {
-    echo json_encode(['success' => true]);
-} else {
-    echo json_encode(['success' => false, 'message' => 'Erro ao excluir ou estado não encontrado']);
+    $estado = new Estado();
+    $estado->id_estado = $id_estado;
+
+    $resultado = $estado->excluir();
+
+    if ($resultado === true) {
+        echo json_encode(['success' => true]);
+    } else {
+        echo json_encode([
+            'success' => false,
+            'message' => 'Este estado possui cidades vinculadas. Exclua as cidades antes de excluir o estado.'
+        ]);
+    }
+} catch (Throwable $e) {
+    http_response_code(500);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Erro no servidor: ' . $e->getMessage()
+    ]);
 }
