@@ -1,0 +1,302 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: #18181b;
+}
+
+a{
+    text-decoration: none;
+}
+
+.cotainer_img_logo_fesp{
+    width: 100%;
+    height: calc(100vh - 80px);
+    /* border: 1px solid red; */
+
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: -2;
+}
+
+.img_logo_background{
+    width: 60%;
+    filter: opacity(0.3);
+
+}
+
+
+
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+}
+.main{
+    width: 100%;
+    height: 100%;
+
+    margin-top: 80px;
+    padding: 15px;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    /* border: 1px solid blue; */
+}
+
+.containerImgLogo{
+    width: 60px;
+    height: 60px;
+}
+.img_logo{
+    width: 100%;
+    border-radius: 50%;
+    border: 2px solid orange;
+
+}
+
+.container_buttons{
+    width: 100%;
+    height: 60px;
+
+
+    display: flex;
+    align-items: center;
+
+    margin-top: 10px;
+
+    /* border: 1px solid red; */
+}
+
+/* button de Cadastrar */
+.btn_verde {
+    --color: #038C3E;
+    --color2: rgb(255, 255, 255);
+    padding: 0.8em 1.75em;
+    background-color: transparent;
+    border-radius: 6px;
+    border: .3px solid var(--color);
+    transition: .5s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    font-weight: 300;
+    font-size: 17px;
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+    color: var(--color);
+   }
+   
+   .btn_verde::after, .btn_verde::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    transform: skew(90deg) translate(-50%, -50%);
+    position: absolute;
+    inset: 50%;
+    left: 25%;
+    z-index: -1;
+    transition: .5s ease-out;
+    background-color: var(--color);
+   }
+   
+   .btn_verde::before {
+    top: -50%;
+    left: -25%;
+    transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+   }
+   
+   .btn_verde:hover::before {
+    transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+   }
+   
+   .btn_verde:hover::after {
+    transform: skew(45deg) translate(-50%, -50%);
+   }
+   
+   .btn_verde:hover {
+    color: var(--color2);
+   }
+   
+   .btn_verde:active {
+    filter: brightness(.7);
+    transform: scale(.98);
+   }
+
+
+/* button de Cancelar */
+
+.btn_cancelar {
+    --color: #c00000;
+    --color2: rgb(255, 255, 255);
+    padding: 0.8em 1.75em;
+    background-color: transparent;
+    border-radius: 6px;
+    border: .3px solid var(--color);
+    transition: .5s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    font-weight: 300;
+    font-size: 17px;
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+    color: var(--color);
+   }
+   
+   .btn_cancelar::after, .btn_cancelar::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    transform: skew(90deg) translate(-50%, -50%);
+    position: absolute;
+    inset: 50%;
+    left: 25%;
+    z-index: -1;
+    transition: .5s ease-out;
+    background-color: var(--color);
+   }
+   
+   .btn_cancelar::before {
+    top: -50%;
+    left: -25%;
+    transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+   }
+   
+   .btn_cancelar:hover::before {
+    transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+   }
+   
+   .btn_cancelar:hover::after {
+    transform: skew(45deg) translate(-50%, -50%);
+   }
+   
+   .btn_cancelar:hover {
+    color: var(--color2);
+   }
+   
+   .btn_cancelar:active {
+    filter: brightness(.7);
+    transform: scale(.98);
+   }
+
+
+   .container_title_pagina {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.container_title_pagina{
+    padding: 20px;
+
+}
+
+.title_dropdown{
+    color: orange !important;
+}
+
+.span_container_title_pagina {
+    position: relative;
+    font-size: 32px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    color: orange;
+    padding: 10px 20px;
+    display: inline-block;
+        display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_img{
+    width: 50px;
+    height: 50px;
+}
+.container_img img{
+    width: 100%;
+}
+
+
+/* Canto superior direito */
+.span_container_title_pagina::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border-top: 4px solid orange;
+    border-right: 4px solid orange;
+}
+
+/* Canto inferior esquerdo */
+.span_container_title_pagina::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    border-left: 4px solid orange;
+    border-bottom: 4px solid orange;
+}
+
+.container_buttons{
+    width: 90%;
+    gap: 10px;
+  
+    /* border: 1px solid red; */
+    justify-content: end;
+    
+  }
+
+@media (min-width: 0px) and (max-width: 350px) {
+    .span_container_title_pagina{
+        font-size: 15px;
+    }
+
+    .span_container_title_pagina::before {
+        width: 25px;
+        height: 25px;
+    }
+    
+    /* Canto inferior esquerdo */
+    .span_container_title_pagina::after {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media (min-width: 351px) and (max-width: 510px) {
+    .span_container_title_pagina{
+        font-size: 20px;
+    }
+}
+
+
+@media (min-width: 351px) and (max-width: 510px) {
+    .span_container_title_pagina{
+        font-size: 20px;
+    }
+}

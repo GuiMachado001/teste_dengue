@@ -26,14 +26,24 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
 
     <!-- Css da pagina -->
-     <link rel="stylesheet" href="../../../assets/css/estado_css/style.css">
-     <link rel="stylesheet" href="../../../assets/css/estado_css/cadastrar_estado.css">
+    <link rel="stylesheet" href="../../../assets/css/escola_css/listar_escola.css">
+    <link rel="stylesheet" href="../../../assets/css/escola_css/style.css">
 
-         <!-- Js do alert sweetalert2 -->
-     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- variável JS com valor do PHP -->
+    <script>
+      const perfilUsuario = <?= $perfilUsuario ?>;
+    </script>
+
+    <!-- Js do alert sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Js da pagina -->
-     <script src="../../../assets/js/estado_js/cadastrar_estado.js" defer></script>
+     <script src="../../../assets/js/escola_js/listar_escola.js" defer></script>
+     <script src="../../../assets/js/escola_js/excluir_escola.js" defer></script>
+
+    <!-- Fonte -->
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -56,9 +66,9 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
                   Estado
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="../listar/estados.php">Listar</a></li>
+                  <li><a class="dropdown-item" href="../../estado/listar/estados.php">Listar</a></li>
                   <?php if($perfilUsuario == 1) { ?>
-                    <li><a class="dropdown-item" href="">Cadastrar</a></li>
+                    <li><a class="dropdown-item" href="../../estado/cadastrar/cadastrar_estado.php">Cadastrar</a></li>
                   <?php } ?>
                 </ul>
               </li>
@@ -69,24 +79,15 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
                   Cidade
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="../../cidade/listar/listar_cidade.php">Listar</a></li>
+                  <li><a class="dropdown-item" href="">Listar</a></li>
                   <?php if($perfilUsuario == 1) { ?>
-                    <li><a class="dropdown-item" href="../../cadastrar/cadastrar_estado.php">Cadastrar</a></li>
+                    <li><a class="dropdown-item" href="../cadastrar/cadastrar_cidade.php">Cadastrar</a></li>
                   <?php } ?>
                 </ul>
               </li>
       
-              <!-- Dropdown Escola -->
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle title_dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Escola
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="../../escola/listar/listar_escola.php">Listar</a></li>
-                  <?php if($perfilUsuario == 1) { ?>
-                    <li><a class="dropdown-item" href="../../escola/cadastrar/cadastrar_escola.php">Cadastrar</a></li>
-                  <?php } ?>
-                </ul>
+              <li class="nav-item">
+                <a class="nav-link title_dropdown" href="#">Escola</a>
               </li>
 
 
@@ -99,28 +100,49 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
         </div>
       </nav>
 
+
     <div class="cotainer_img_logo_fesp">
       <img class="img_logo_background" src="../../../assets/img/fesplogo.png" alt="">
     </div>
     <section class="main">
-        <form id="form_cadastro_estado" method="POST" class="form_cadastrar_estado"> 
 
-            <div class="continer_inp_nome">
-                <div class="input-container">
-                    <input type="text" id="input" name="nome" required="">
-                    <label for="input" class="label">Nome do Estado</label>
-                    <div class="underline"></div> 
-                </div>
+<div class="container_btn_cadastrar_escola">
+    <button 
+        class="btn_cadastrar_escola" 
+        <?php if($perfilUsuario != 1) echo 'disabled style="background-color: grey; cursor: not-allowed;"'; ?>>
+        Cadastrar
+    </button>
+</div>
+
+
+        <div class="container_title_pagina">
+          <span class="span_container_title_pagina">
+            <div class="container_img">
+              <img src="../../../assets/img/mosquito.png" alt="">
             </div>
+              Escolas Cadastrados
+            <div class="container_img">
+              <img src="../../../assets/img/mosquito.png" alt="">
+            </div>
+            </span>
+        </div>
 
-            <div class="container_buttons">
-              <button class="btn_cancelar" id="btn_cancelar"> Cancelar </button>
-              <button class="btn_verde" type="submit" name="Cadastrar" > Cadastrar </button>
-          </div>
 
-        </form>
+        <div class="container_lista_escolas">
+          <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Escola</th>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        </div>
     </section>
-
 
 
 </body>
