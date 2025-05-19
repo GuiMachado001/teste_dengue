@@ -27,7 +27,7 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
 
     <!-- Css da pagina -->
      <link rel="stylesheet" href="../../../assets/css/escola_css/style.css">
-     <link rel="stylesheet" href="../../../assets/css/escola_css/escola.css">
+     <link rel="stylesheet" href="../../../assets/css/escola_css/cadastrar_escola.css">
 
          <!-- Js do alert sweetalert2 -->
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
