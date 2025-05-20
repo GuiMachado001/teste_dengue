@@ -1,25 +1,25 @@
 document.querySelector('#btn_cancelar').addEventListener('click', function(){
-    window.location = '../listar/escolas.php';
+    window.location = '../listar/listar_escola.php';
 })
 
 document.addEventListener("DOMContentLoaded", () =>{
-    fetch("/teste_dengue/public/api/estado_api/listar_estados_api.php")
+    fetch("/teste_dengue/public/api/cidade_api/listar_cidades_api.php")
     .then(res => res.json())
-    .then(estados =>{
-        const select = document.getElementById("id_estado");
+    .then(cidades =>{
+        const select = document.getElementById("id_cidade");
 
-        estados.forEach(estado => {
+        cidades.forEach(cidade => {
             const option = document.createElement("option");
-            option.value = estado.id_estado;
-            option.textContent = estado.nome;
+            option.value = cidade.id_cidade;
+            option.textContent = cidade.nome;
             select.appendChild(option);
         });
     })
     .catch(err => {
-        console.error("Erro ao carregar estados:", err);
+        console.error("Erro ao carregar cidades:", err);
         Swal.fire({
             icon: 'error',
-            title: 'Erro ao carregar estados',
+            title: 'Erro ao carregar cidades',
             text: 'Verifique sua conexão ou tente novamente mais tarde.',
         });
     });
@@ -30,7 +30,7 @@ document.getElementById('form_cadastro_escola').addEventListener('submit', funct
 
     const dados = {
         nome: this.nome.value,
-        id_estado: this.id_estado.value
+        id_cidade: this.id_cidade.value
     };
 
     fetch("./cadastrar_escola_controlador.php",{
@@ -45,7 +45,7 @@ document.getElementById('form_cadastro_escola').addEventListener('submit', funct
     .then(data => {
         Swal.fire({
             icon: 'success',
-            title: ' Escola cadastrado!',
+            title: ' escola cadastrado!',
             html: `
                 <p style="font-size: 16px; margin-bottom: 10px;">Escolha o que deseja fazer a seguir:</p>
                 <div style="display: flex; justify-content: center; gap: 15px; margin-top: 15px;">

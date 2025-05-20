@@ -4,30 +4,30 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once '../../../app/controller/escola.php';
+require_once '../../../app/controller/Escola.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $input = json_decode(file_get_contents('php://input'), true);
     $nome = $input['nome'] ?? '';
-    $id_estado = $input['id_estado'] ?? '';
+    $id_cidade = $input['id_cidade'] ?? '';
     
-    if (!$nome || !$id_estado) {
+    if (!$nome || !$id_cidade) {
         http_response_code(400);
-        echo json_encode(['message' => 'Nome da escola e estado são obrigatórios.']);
+        echo json_encode(['message' => 'Nome da cidade e cidade são obrigatórios.']);
         exit;
     }
 
-    $controller = new Escola();
+    $controller = new Cidade();
     $controller->nome = $nome;
-    $controller->id_estado = $id_estado;
+    $controller->id_cidade = $id_cidade;
 
     // Tentar cadastrar
     if ($controller->cadastrar()) {
-        echo json_encode(['message' => 'escola cadastrado com sucesso']);
+        echo json_encode(['message' => 'cidade cadastrado com sucesso']);
     } else {
         http_response_code(500);
-        echo json_encode(['message' => 'Erro ao cadastrar o escola!']);
+        echo json_encode(['message' => 'Erro ao cadastrar o cidade!']);
     }
 } else {
     http_response_code(405);

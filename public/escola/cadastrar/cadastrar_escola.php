@@ -33,7 +33,7 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Js da pagina -->
-     <script src="../../../assets/js/escola_js/escola.js" defer></script>
+     <script src="../../../assets/js/escola_js/cadastrar_escola.js" defer></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -109,17 +109,17 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
             <div class="continer_inp_nome">
                 <div class="input-container">
                     <input type="text" id="input" name="nome" required="">
-                    <label for="input" class="label">Nome da Escola</label>
+                    <label for="input" class="label">Nome da escola</label>
                     <div class="underline"></div> 
                 </div>
             </div>
 
             
-            <div class="container_dropdown_estados">
-            <label for="id_estado" class="form-label fw-semibold text-white">
-                <i class="bi bi-geo-alt-fill me-1 text-primary"></i> Selecione o estado
+            <div class="container_dropdown_cidades">
+            <label for="id_cidade" class="form-label fw-semibold text-white">
+                <i class="bi bi-geo-alt-fill me-1 text-primary"></i> Selecione o cidade
             </label>
-            <select class="form-select shadow-sm" name="id_estado" id="id_estado" required>
+            <select class="form-select shadow-sm" name="id_cidade" id="id_cidade" required>
             <option value="" disabled selected>Selecionar...</option>
             </select>
             </div>

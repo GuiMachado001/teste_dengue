@@ -1,5 +1,5 @@
 document.querySelector('#btn_cancelar').addEventListener('click', function(){
-    window.location = '../listar/cidades.php';
+    window.location = '../listar/listar_cidade.php';
 })
 
 document.addEventListener("DOMContentLoaded", () =>{
