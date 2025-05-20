@@ -20,11 +20,11 @@ document.addEventListener("DOMContentLoaded", function() {
                         <button class="btn btn-sm btn-secondary" disabled>Excluir</button>
                     `;
                 }
-
+                
                 return `
                     <tr>
                         <td>${escola.nome_escola}</td>
-                        <td>${escola.nome_estado}</td>
+                        <td>${escola.nome_cidade}</td>
                         <td>${acoes}</td>
                     </tr>
                 `;

@@ -75,7 +75,7 @@
 .container_dropdown_cidades{
     width: 90%;   
 }
-#id_estado {
+#id_cidade {
   background-color: #6c757d; 
   color: white;
   border: none;              
@@ -86,7 +86,7 @@
   -moz-appearance: none;
 }
 
-#id_estado:focus {
+#id_cidade:focus {
   outline: none;            
   box-shadow: none;
 }

@@ -1,6 +1,6 @@
 <?php
 
-require_once '../../../app/controller/escola.php';
+require_once '../../../app/controller/Escola.php';
 
 header('Content-Type: application/json');
 

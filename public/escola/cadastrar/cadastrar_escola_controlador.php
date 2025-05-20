@@ -14,20 +14,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if (!$nome || !$id_cidade) {
         http_response_code(400);
-        echo json_encode(['message' => 'Nome da cidade e cidade são obrigatórios.']);
+        echo json_encode(['message' => 'Nome da escola e cidade são obrigatórios.']);
         exit;
     }
 
-    $controller = new Cidade();
+    $controller = new Escola();
     $controller->nome = $nome;
     $controller->id_cidade = $id_cidade;
 
     // Tentar cadastrar
     if ($controller->cadastrar()) {
-        echo json_encode(['message' => 'cidade cadastrado com sucesso']);
+        echo json_encode(['message' => 'escola cadastrado com sucesso']);
     } else {
         http_response_code(500);
-        echo json_encode(['message' => 'Erro ao cadastrar o cidade!']);
+        echo json_encode(['message' => 'Erro ao cadastrar o escola!']);
     }
 } else {
     http_response_code(405);

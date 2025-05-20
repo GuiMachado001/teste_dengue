@@ -12,7 +12,7 @@ class Escola{
 
         $res = $db->insert([
                 'nome' => $this->nome,
-                'id_escola' => $this->id_cidade
+                'id_cidade' => $this->id_cidade
             ]
         );
         return $res;
@@ -57,11 +57,11 @@ class Escola{
         return $db->delete('id_escola ='.$this->id_escola);
     }
 
-    public function buscar_com_escola() {
+    public function buscar_com_cidade() {
         $db = new Database('');
 
         // $escola_estado = $db->select_escola_estado();
         
-        return $db->select_escola_escola();
+        return $db->select_escola_cidade();
     }
 }

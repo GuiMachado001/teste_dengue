@@ -103,6 +103,21 @@
 
         }
 
+        public function select_escola_cidade(){
+            $query = "
+                SELECT 
+                    escola.id_escola,
+                    escola.ativo,
+                    escola.nome AS nome_escola,
+                    cidade.nome AS nome_cidade
+                FROM escola
+                INNER JOIN cidade ON escola.id_cidade = cidade.id_cidade
+                ORDER BY escola.nome ASC
+            ";
+            return $this->execute($query)->fetchAll(PDO::FETCH_ASSOC);
+
+        }
+
         public function update($where, $array){
 
             $fields = array_keys($array);
