@@ -71,7 +71,7 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="../../cidade/listar/listar_cidade.php">Listar</a></li>
                   <?php if($perfilUsuario == 1) { ?>
-                    <li><a class="dropdown-item" href="../../cadastrar/cadastrar_estado.php">Cadastrar</a></li>
+                    <li><a class="dropdown-item" href="../../cidade/cadastrar/cadastrar_cidade.php">Cadastrar</a></li>
                   <?php } ?>
                 </ul>
               </li>
@@ -87,6 +87,19 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
                     <li><a class="dropdown-item" href="../../escola/cadastrar/cadastrar_escola.php">Cadastrar</a></li>
                   <?php } ?>
                 </ul>
+              </li>
+
+              <!-- Dropdown serie -->
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle title_dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Serie
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="../../serie/listar/listar_serie.php">Listar</a></li>
+                    <?php if($perfilUsuario == 1) { ?>
+                      <li><a class="dropdown-item" href="../../serie/cadastrar/cadastrar_serie.php">Cadastrar</a></li>
+                    <?php } ?>
+                  </ul>
               </li>
 
 
