@@ -3,7 +3,7 @@ document.querySelector('#btn_cancelar').addEventListener('click', function(){
 })
 
 document.addEventListener("DOMContentLoaded", () =>{
-    fetch("./listar_estados_api.php")
+    fetch("../../api/estado_api/listar_estados_api.php")
     .then(res => res.json())
     .then(estados =>{
         const select = document.getElementById("id_estado");

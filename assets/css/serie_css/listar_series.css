@@ -1,4 +1,4 @@
-.container_btn_cadastrar_cidade{
+.container_btn_cadastrar_serie{
     width: 100%;
     height: 60px;
 
@@ -11,7 +11,7 @@
     /* border: 1px solid red; */
 }
 
-.btn_cadastrar_cidade {
+.btn_cadastrar_serie {
     --color: orange;
     --color2: rgb(255, 255, 255);
     padding: 0.8em 1.75em;
@@ -30,7 +30,7 @@
     color: var(--color);
    }
    
-   .btn_cadastrar_cidade::after, .btn_cadastrar_cidade::before {
+   .btn_cadastrar_serie::after, .btn_cadastrar_serie::before {
     content: '';
     display: block;
     height: 100%;
@@ -44,25 +44,25 @@
     background-color: var(--color);
    }
    
-   .btn_cadastrar_cidade::before {
+   .btn_cadastrar_serie::before {
     top: -50%;
     left: -25%;
     transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
    }
    
-   .btn_cadastrar_cidade:hover::before {
+   .btn_cadastrar_serie:hover::before {
     transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
    }
    
-   .btn_cadastrar_cidade:hover::after {
+   .btn_cadastrar_serie:hover::after {
     transform: skew(45deg) translate(-50%, -50%);
    }
    
-   .btn_cadastrar_cidade:hover {
+   .btn_cadastrar_serie:hover {
     color: var(--color2);
    }
    
-   .btn_cadastrar_cidade:active {
+   .btn_cadastrar_serie:active {
     filter: brightness(.7);
     transform: scale(.98);
    }

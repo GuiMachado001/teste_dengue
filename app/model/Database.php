@@ -118,6 +118,19 @@
 
         }
 
+        public function select_serie_escola(){
+            $query = "
+                SELECT 
+                    serie.id_serie,
+                    serie.nome AS nome_serie,
+                    escola.nome AS nome_escola
+                FROM serie
+                INNER JOIN escola ON serie.id_escola = escola.id_escola
+                ORDER BY serie.nome ASC
+            ";
+            return $this->execute($query)->fetchAll(PDO::FETCH_ASSOC);
+        }
+
         public function verificar_series($id_escola) {
             $query = "SELECT COUNT(*) AS total FROM serie WHERE id_escola = :id";
             $stmt = $this->conn->prepare($query);

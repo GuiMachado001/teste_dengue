@@ -6,8 +6,9 @@ if (!isset($_SESSION['usuario'])) {
     exit;
 }
 
-$perfilUsuario = $_SESSION['usuario']['perfil'];
+$perfilUsuario = $_SESSION['usuario']['perfil']; 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -26,27 +27,17 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
 
     <!-- Css da pagina -->
-    <link rel="stylesheet" href="../../../assets/css/serie_css/listar_series.css">
-    <link rel="stylesheet" href="../../../assets/css/serie_css/style.css">
+     <link rel="stylesheet" href="../../../assets/css/serie_css/style.css">
+     <link rel="stylesheet" href="../../../assets/css/serie_css/editar_serie.css">
 
-    <!-- variável JS com valor do PHP -->
-    <script>
-      const perfilUsuario = <?= $perfilUsuario ?>;
-    </script>
 
-    <!-- Js do alert sweetalert2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+         <!-- Js do alert sweetalert2 -->
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Js da pagina -->
-     <script src="../../../assets/js/serie_js/listar_serie.js" defer></script>
-     <script src="../../../assets/js/serie_js/excluir_serie.js" defer></script>
-
-    <!-- Fonte -->
-     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+     <script src="../../../assets/js/serie_js/editar_serie.js" defer></script>
 </head>
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <div class="containerImgLogo">
@@ -61,15 +52,15 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
             <ul class="navbar-nav">
 
       
-              <!-- Dropdown serie -->
+              <!-- Dropdown Estado -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle title_dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  serie
+                  Estado
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="">Listar</a></li>
+                  <li><a class="dropdown-item" href="../../estado/listar/estados.php">Listar</a></li>
                   <?php if($perfilUsuario == 1) { ?>
-                    <li><a class="dropdown-item" href="../cadastrar/cadastrar_serie.php">Cadastrar</a></li>
+                    <li><a class="dropdown-item" href="../../estado/cadastrar/cadastrar_estado.php">Cadastrar</a></li>
                   <?php } ?>
                 </ul>
               </li>
@@ -80,9 +71,9 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
                   Cidade
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="../../cidade/listar/listar_cidade.php">Listar</a></li>
+                  <li><a class="dropdown-item" href="../listar/listar_cidade.php">Listar</a></li>
                   <?php if($perfilUsuario == 1) { ?>
-                    <li><a class="dropdown-item" href="../../cidade/cadastrar/cadastrar_cidade.php">Cadastrar</a></li>
+                    <li><a class="dropdown-item" href="../cadastrar/cadastrar_cidade.php">Cadastrar</a></li>
                   <?php } ?>
                 </ul>
               </li>
@@ -100,18 +91,19 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
                 </ul>
               </li>
 
-            <!-- Dropdown serie -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle title_dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Serie
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="">Listar</a></li>
-                  <?php if($perfilUsuario == 1) { ?>
-                    <li><a class="dropdown-item" href="../cadastrar/cadastrar_serie.php">Cadastrar</a></li>
-                  <?php } ?>
-                </ul>
-            </li>
+              <!-- Dropdown serie -->
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle title_dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Serie
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="../../serie/listar/listar_serie.php">Listar</a></li>
+                    <?php if($perfilUsuario == 1) { ?>
+                      <li><a class="dropdown-item" href="../../serie/cadastrar/cadastrar_serie.php">Cadastrar</a></li>
+                    <?php } ?>
+                  </ul>
+              </li>
+
 
               <li class="nav-item">
                 <a class="nav-link title_dropdown" href="../../logout.php">Sair</a>
@@ -121,50 +113,39 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
           </div>
         </div>
       </nav>
-      
-      
-    <div class="cotainer_img_logo_fesp">
-      <img class="img_logo_background" src="../../../assets/img/fesplogo.png" alt="">
-    </div>
+
+      <div class="cotainer_img_logo_fesp">
+        <img class="img_logo_background" src="../../../assets/img/fesplogo.png" alt="">
+       </div>
     <section class="main">
 
-    <div class="container_btn_cadastrar_serie">
-        <button 
-            class="btn_cadastrar_serie" 
-            <?php if($perfilUsuario != 1) echo 'disabled style="background-color: grey; cursor: not-allowed;"'; ?>>
-            Cadastrar
-        </button>
-    </div>
+      <!-- <div class="container_title_pagina">
+        <span class="span_container_title_pagina">📋 Editar cidade</span>
+      </div> -->
 
+        <form id="form_editar_serie" class="form_editar_serie">
+            <input type="hidden" id="id_serie">
 
-        <div class="container_title_pagina">
-          <span class="span_container_title_pagina">
-            <div class="container_img">
-              <img src="../../../assets/img/mosquito.png" alt="">
-            </div>
-              Series Cadastrados
-            <div class="container_img">
-              <img src="../../../assets/img/mosquito.png" alt="">
-            </div>
-            </span>
-        </div>
+            <div class="continer_inp_nome">
 
-        <div class="container_lista_serie">
-          <table class="table table-dark table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">serie</th>
-                    <th scope="col">escola</th>
-                    <th scope="col">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
+              <div class="input-container">
 
-            </tbody>
-        </table>
-        </div>
+                <input type="text" id="input" name="nome" required="">
+                <label for="input" class="label">Nome do serie</label>
+                <div class="underline"></div> 
+
+              </div>
+
+          </div>
+
+            <div class="container_buttons">
+              <button class="btn_cancelar" id="btn_cancelar"> Cancelar </button>
+              <button class="btn_verde" type="submit" name="Cadastrar" > Salvar </button>
+          </div>
+
+        </form>
+
     </section>
-
 
 </body>
 </html>
