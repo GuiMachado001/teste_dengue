@@ -3,7 +3,7 @@ document.querySelector('.btn_cadastrar_escola').addEventListener('click', functi
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    fetch("/teste_dengue/public/escola/listar/listar_escola_controlador.php")
+    fetch("./listar_escola_controlador.php")
         .then(response => response.json())
         .then(escolas => {
             const tbody = document.querySelector(".container_lista_escolas tbody");
@@ -48,7 +48,7 @@ document.addEventListener('click', function(e){
         const ativoAtual = parseInt(e.target.getAttribute('data-ativo'));
         const novoStatus = ativoAtual == 1 ? 0:1;
 
-        fetch(`/teste_dengue/public/escola/listar/alterar_status.php`, {
+        fetch(`./alterar_status.php`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({ id_escola: id, ativo: novoStatus})

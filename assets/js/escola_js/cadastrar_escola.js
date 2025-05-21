@@ -3,7 +3,7 @@ document.querySelector('#btn_cancelar').addEventListener('click', function(){
 })
 
 document.addEventListener("DOMContentLoaded", () =>{
-    fetch("/teste_dengue/public/api/cidade_api/listar_cidades_api.php")
+    fetch("./listar_cidades_api.php")
     .then(res => res.json())
     .then(cidades =>{
         const select = document.getElementById("id_cidade");

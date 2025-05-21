@@ -3,7 +3,7 @@ document.querySelector('#btn_cancelar').addEventListener('click', function(){
 })
 
 document.addEventListener("DOMContentLoaded", () =>{
-    fetch("/teste_dengue/public/api/estado_api/listar_estados_api.php")
+    fetch("./listar_estados_api.php")
     .then(res => res.json())
     .then(estados =>{
         const select = document.getElementById("id_estado");

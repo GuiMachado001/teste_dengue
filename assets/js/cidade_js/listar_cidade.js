@@ -3,7 +3,7 @@ document.querySelector('.btn_cadastrar_cidade').addEventListener('click', functi
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    fetch("/teste_dengue/public/cidade/listar/listar_cidade_controlador.php")
+    fetch("./listar_cidade_controlador.php")
         .then(response => response.json())
         .then(cidades => {
             const tbody = document.querySelector(".container_lista_cidades tbody");
