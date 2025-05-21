@@ -118,6 +118,21 @@
 
         }
 
+        public function verificar_series($id_escola) {
+            $query = "SELECT COUNT(*) AS total FROM serie WHERE id_escola = :id";
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute([':id' => $id_escola]);
+            $res = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            return $res['total'] ?? 0;
+        }
+
+        public function excluir_pontos_escola($id_escola){
+            $query = "DELETE FROM pontos_escola WHERE id_escola = :id";
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute([':id' => $id_escola]);
+        }
+
         public function update($where, $array){
 
             $fields = array_keys($array);

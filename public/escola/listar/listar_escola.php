@@ -144,6 +144,7 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
                     <th scope="col">Escola</th>
                     <th scope="col">Cidade</th>
                     <th scope="col">Ações</th>
+                    <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>

@@ -30,11 +30,17 @@ document.addEventListener('click', function(e) {
                             window.location.reload();
                         });
                     } else {
+                        let mensagem = 'Não foi possível excluir o escola.';
+
+                        if (response.message && response.message.includes('foreign key constraint fails')) {
+                            mensagem = 'Este escola possui séries vinculadas. Para excluí-lo, exclua primeiro as séries relacionadas.';
+                        }
+
                         Swal.fire({
                             title: 'Erro!',
-                            text: response.message || 'Não foi possível excluir o escola.',
+                            text: mensagem,
                             icon: 'error',
-                            confirmButtonText: 'OK'
+                            confirmButtonText: 'Entendi'
                         });
                     }
                 })

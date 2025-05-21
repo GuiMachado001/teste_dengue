@@ -52,9 +52,20 @@ class Escola{
         return $res;
     }
 
-    public function excluir(){
+    public function excluir() {
         $db = new Database('escola');
-        return $db->delete('id_escola ='.$this->id_escola);
+
+        $series = $db->verificar_series($this->id_escola);
+        if ($series > 0) {
+            return false;
+        }
+
+
+        $db_geral = new Database();
+        $resPontos = $db_geral->excluir_pontos_escola($this->id_escola);
+
+        // Se a exclusão dos pontos foi bem-sucedida, então excluir a escola
+        return $db->delete('id_escola = ' . $this->id_escola);
     }
 
     public function buscar_com_cidade() {
@@ -63,5 +74,15 @@ class Escola{
         // $escola_estado = $db->select_escola_estado();
         
         return $db->select_escola_cidade();
+    }
+
+    public function ativar(){
+        $db = new Database('escola');
+        return $db->update('id_escola = ' . $this->id_escola, ['ativo' => 1]);
+    }
+
+    public function inativar(){
+        $db = new Database('escola');
+        return $db->update('id_escola = ' . $this->id_escola, ['ativo' => 0]);
     }
 }

@@ -1,30 +1,44 @@
 <?php
-
-require_once '../../../app/controller/Escola.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 header('Content-Type: application/json');
 
-// Permitir apenas requisições DELETE
-if ($_SERVER['REQUEST_METHOD'] !== 'DELETE') {
-    echo json_encode(['success' => false, 'message' => 'Método não permitido']);
-    http_response_code(405); // Method Not Allowed
-    exit;
-}
+try {
+    require_once '../../../app/controller/Escola.php';
 
-// Ler o corpo JSON
-$input = json_decode(file_get_contents('php://input'), true);
-$id_escola = $input['id_escola'] ?? null;
+    if ($_SERVER['REQUEST_METHOD'] !== 'DELETE') {
+        http_response_code(405);
+        echo json_encode(['success' => false, 'message' => 'Método não permitido']);
+        exit;
+    }
 
-if (!$id_escola) {
-    echo json_encode(['success' => false, 'message' => 'Id não fornecido']);
-    exit;
-}
+    $input = json_decode(file_get_contents('php://input'), true);
+    $id_escola = $input['id_escola'] ?? null;
 
-$escola = new Escola();
-$escola->id_escola = $id_escola;
+    if (!$id_escola) {
+        echo json_encode(['success' => false, 'message' => 'Id não fornecido']);
+        exit;
+    }
 
-if ($escola->excluir()) {
-    echo json_encode(['success' => true]);
-} else {
-    echo json_encode(['success' => false, 'message' => 'Erro ao excluir ou escola não encontrado']);
+    $escola = new Escola();
+    $escola->id_escola = $id_escola;
+
+    $resultado = $escola->excluir();
+
+    if ($resultado === true) {
+        echo json_encode(['success' => true]);
+    } else {
+        echo json_encode([
+            'success' => false,
+            'message' => 'Esta escola possui séries vinculadas. Exclua as séries antes de excluir a escola.'
+        ]);
+    }
+} catch (Throwable $e) {
+    http_response_code(500);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Erro no servidor: ' . $e->getMessage()
+    ]);
 }
