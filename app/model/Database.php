@@ -131,10 +131,19 @@
             return $this->execute($query)->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        public function verificar_series($id_escola) {
+        public function verificar_aluno($id_escola) {
             $query = "SELECT COUNT(*) AS total FROM serie WHERE id_escola = :id";
             $stmt = $this->conn->prepare($query);
             $stmt->execute([':id' => $id_escola]);
+            $res = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            return $res['total'] ?? 0;
+        }
+
+        public function verificar_series($id_serie) {
+            $query = "SELECT COUNT(*) AS total FROM aluno WHERE id_serie = :id";
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute([':id' => $id_serie]);
             $res = $stmt->fetch(PDO::FETCH_ASSOC);
 
             return $res['total'] ?? 0;

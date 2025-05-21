@@ -56,7 +56,7 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
                   Estado
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="../../estado/listar/escola.php">Listar</a></li>
+                  <li><a class="dropdown-item" href="../../estado/listar/estados.php">Listar</a></li>
                   <?php if($perfilUsuario == 1) { ?>
                     <li><a class="dropdown-item" href="../../estado/cadastrar/cadastrar_estado.php">Cadastrar</a></li>
                   <?php } ?>

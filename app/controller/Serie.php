@@ -55,17 +55,13 @@ class Serie{
     public function excluir() {
         $db = new Database('serie');
 
-        $series = $db->verificar_series($this->id_serie);
-        if ($series > 0) {
+        $alunos = $db->verificar_aluno($this->id_serie);
+        if ($alunos > 0) {
             return false;
         }
 
-
-        $db_geral = new Database();
-        $resPontos = $db_geral->excluir_pontos_serie($this->id_serie);
-
         // Se a exclusão dos pontos foi bem-sucedida, então excluir a serie
-        return $db->delete('id_serie = ' . $this->id_serie);
+        return $db->delete('id_serie ='.$this->id_serie);
     }
 
     public function buscar_com_escola() {
@@ -76,13 +72,4 @@ class Serie{
         return $db->select_serie_escola();
     }
 
-    public function ativar(){
-        $db = new Database('serie');
-        return $db->update('id_serie = ' . $this->id_serie, ['ativo' => 1]);
-    }
-
-    public function inativar(){
-        $db = new Database('serie');
-        return $db->update('id_serie = ' . $this->id_serie, ['ativo' => 0]);
-    }
 }

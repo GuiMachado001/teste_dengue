@@ -61,15 +61,15 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
             <ul class="navbar-nav">
 
       
-              <!-- Dropdown serie -->
+              <!-- Dropdown Estado -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle title_dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  serie
+                  Estado
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="">Listar</a></li>
+                  <li><a class="dropdown-item" href="../../estado/listar/estados.php">Listar</a></li>
                   <?php if($perfilUsuario == 1) { ?>
-                    <li><a class="dropdown-item" href="../cadastrar/cadastrar_serie.php">Cadastrar</a></li>
+                    <li><a class="dropdown-item" href="../../estado/cadastrar/cadastrar_estado.php">Cadastrar</a></li>
                   <?php } ?>
                 </ul>
               </li>
