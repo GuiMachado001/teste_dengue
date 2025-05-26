@@ -23,9 +23,6 @@
 </head>
 
 <body>
-<div class="container_img_background">
-    <img class="img_logo_background" src="../assets/img/logoAgente360qualidade.png" alt="">
-</div>
 
     <div class="loginBox">
         <img class="user" src="../assets/img/mosquito.png" height="100px" width="100px">
@@ -49,8 +46,7 @@
   <g >
    <use xlink:href="#wavepath" y="183" fill="#115473">
    <animateMotion
-    dur="5s"
-    repeatCount="indefinite">
+dur="15s" repeatCount="indefinite">
     <mpath xlink:href="#motionpath" />
    </animateMotion>
    </use>

@@ -1,7 +1,6 @@
 <?php require_once __DIR__ . '/../../../app/helpers/auth.php'; ?>
 
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,15 +18,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
 
     <!-- Css da pagina -->
-     <link rel="stylesheet" href="../../../assets/css/serie_css/style.css">
-     <link rel="stylesheet" href="../../../assets/css/serie_css/editar_serie.css">
-
+     <link rel="stylesheet" href="../../../assets/css/aluno_css/style.css">
+     <link rel="stylesheet" href="../../../assets/css/aluno_css/cadastrar_aluno.css">
 
          <!-- Js do alert sweetalert2 -->
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Js da pagina -->
-     <script src="../../../assets/js/serie_js/editar_serie.js" defer></script>
+     <script src="../../../assets/js/aluno_js/cadastrar_aluno.js" defer></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -63,9 +61,9 @@
                   Cidade
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="../listar/listar_cidade.php">Listar</a></li>
+                  <li><a class="dropdown-item" href="../../cidade/listar/listar_cidade.php">Listar</a></li>
                   <?php if($perfilUsuario == 1) { ?>
-                    <li><a class="dropdown-item" href="../cadastrar/cadastrar_cidade.php">Cadastrar</a></li>
+                    <li><a class="dropdown-item" href="">Cadastrar</a></li>
                   <?php } ?>
                 </ul>
               </li>
@@ -104,7 +102,7 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li><a class="dropdown-item" href="../../aluno/listar/escolher_escola.php">Listar</a></li>
                   <?php if($perfilUsuario == 1) { ?>
-                    <li><a class="dropdown-item" href="../../aluno/cadastrar/cadastrar_aluno.php">Cadastrar</a></li>
+                    <li><a class="dropdown-item" href="">Cadastrar</a></li>
                   <?php } ?>
                 </ul>
               </li>
@@ -119,38 +117,51 @@
         </div>
       </nav>
 
-      <div class="cotainer_img_logo_fesp">
-        <img class="img_logo_background" src="../../../assets/img/fesplogo.png" alt="">
-       </div>
+
+    <div class="cotainer_img_logo_fesp">
+      <img class="img_logo_background" src="../../../assets/img/fesplogo.png" alt="">
+    </div>
+
+    
+
     <section class="main">
-
-      <!-- <div class="container_title_pagina">
-        <span class="span_container_title_pagina">📋 Editar cidade</span>
-      </div> -->
-
-        <form id="form_editar_serie" class="form_editar_serie">
-            <input type="hidden" id="id_serie">
+        <form id="form_cadastro_aluno" method="POST" class="form_cadastrar_aluno"> 
 
             <div class="continer_inp_nome">
+                <div class="input-container">
+                    <input type="text" id="input" name="nome" required="">
+                    <label for="input" class="label">Nome da aluno</label>
+                    <div class="underline"></div> 
+                </div>
+            </div>
 
-              <div class="input-container">
+            <div class="container_dropdown_escolas">
+                <label for="id_escola" class="form-label fw-semibold text-white">
+                    <i class="bi bi-list-ol me-1 text-primary"></i> Selecione a Escola
+                </label>
+                <select class="form-select shadow-sm" name="id_escola" id="id_escola" required>
+                    <option value="" disabled selected>Selecionar...</option>
+                </select>
+            </div>
 
-                <input type="text" id="input" name="nome" required="">
-                <label for="input" class="label">Nome do serie</label>
-                <div class="underline"></div> 
-
-              </div>
-
-          </div>
-
+            
+            <div class="container_dropdown_series">
+                <label for="id_serie" class="form-label fw-semibold text-white">
+                    <i class="bi bi-list-ol me-1 text-primary"></i> Selecione a série
+                </label>
+                <select class="form-select shadow-sm" name="id_serie" id="id_serie" required>
+                    <option value="" disabled selected>Selecionar...</option>
+                </select>
+            </div>
+                        
             <div class="container_buttons">
               <button class="btn_cancelar" id="btn_cancelar"> Cancelar </button>
-              <button class="btn_verde" type="submit" name="Cadastrar" > Salvar </button>
+              <button class="btn_verde" type="submit" name="Cadastrar" > Cadastrar </button>
           </div>
-
         </form>
-
     </section>
+
+
 
 </body>
 </html>

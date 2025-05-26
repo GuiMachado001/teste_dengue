@@ -1,5 +1,6 @@
-REATE DATABASE dengue;
+CREATE DATABASE dengue;
 USE dengue;
+
 
 
 CREATE TABLE perfil (
@@ -148,3 +149,19 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+DELIMITER $$
+
+CREATE TRIGGER inserir_pontos_aluno
+AFTER INSERT ON aluno
+FOR EACH ROW
+BEGIN
+  -- Inserir um registro correspondente na tabela pontos_aluno
+  INSERT INTO pontos_aluno (id_aluno, pontos)
+  VALUES (NEW.id_aluno, 0);
+END$$
+
+DELIMITER ;
+
+
+

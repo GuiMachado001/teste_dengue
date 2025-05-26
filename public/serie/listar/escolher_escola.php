@@ -1,7 +1,5 @@
 <?php require_once __DIR__ . '/../../../app/helpers/auth.php'; ?>
 
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,15 +17,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
 
     <!-- Css da pagina -->
-     <link rel="stylesheet" href="../../../assets/css/serie_css/style.css">
-     <link rel="stylesheet" href="../../../assets/css/serie_css/editar_serie.css">
+    <link rel="stylesheet" href="../../../assets/css/serie_css/escolher_escolas.css">
+    <link rel="stylesheet" href="../../../assets/css/serie_css/style.css">
 
+    <!-- variável JS com valor do PHP -->
+    <script>
+      const perfilUsuario = <?= $perfilUsuario ?>;
+    </script>
 
-         <!-- Js do alert sweetalert2 -->
-     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Js do alert sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Js da pagina -->
-     <script src="../../../assets/js/serie_js/editar_serie.js" defer></script>
+     <!-- <script src="../../../assets/js/serie_js/escolher_serie.js" defer></script> -->
+     <script src="../../../assets/js/serie_js/escolher_escola.js" defer></script>
+
+    <!-- Fonte -->
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -63,7 +70,7 @@
                   Cidade
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="../listar/listar_cidade.php">Listar</a></li>
+                  <li><a class="dropdown-item" href="">Listar</a></li>
                   <?php if($perfilUsuario == 1) { ?>
                     <li><a class="dropdown-item" href="../cadastrar/cadastrar_cidade.php">Cadastrar</a></li>
                   <?php } ?>
@@ -89,7 +96,7 @@
                       Serie
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="../../serie/listar/escolher_escola.php">Listar</a></li>
+                    <li><a class="dropdown-item" href="">Listar</a></li>
                     <?php if($perfilUsuario == 1) { ?>
                       <li><a class="dropdown-item" href="../../serie/cadastrar/cadastrar_serie.php">Cadastrar</a></li>
                     <?php } ?>
@@ -109,7 +116,6 @@
                 </ul>
               </li>
 
-
               <li class="nav-item">
                 <a class="nav-link title_dropdown" href="../../logout.php">Sair</a>
               </li>
@@ -119,38 +125,58 @@
         </div>
       </nav>
 
-      <div class="cotainer_img_logo_fesp">
-        <img class="img_logo_background" src="../../../assets/img/fesplogo.png" alt="">
-       </div>
-    <section class="main">
 
-      <!-- <div class="container_title_pagina">
-        <span class="span_container_title_pagina">📋 Editar cidade</span>
-      </div> -->
 
-        <form id="form_editar_serie" class="form_editar_serie">
-            <input type="hidden" id="id_serie">
+    <div class="cotainer_img_logo_fesp">
+      <img class="img_logo_background" src="../../../assets/img/fesplogo.png" alt="">
+    </div>
 
-            <div class="continer_inp_nome">
+      <section class="main">
 
-              <div class="input-container">
+<div class="container_btn_cadastrar_aluno">
+    <button 
+        class="btn_cadastrar_aluno" 
+        <?php if($perfilUsuario != 1) echo 'disabled style="background-color: grey; cursor: not-allowed;"'; ?>>
+        Cadastrar
+    </button>
+</div>
+        
+        <div class="container_title_pagina">
+          <span class="span_container_title_pagina">
+            <div class="container_img">
+              <img src="../../../assets/img/mosquito.png" alt="">
+            </div>
+              Listar Series
+            <div class="container_img">
+              <img src="../../../assets/img/mosquito.png" alt="">
+            </div>
+          </span>
+        </div>
 
-                <input type="text" id="input" name="nome" required="">
-                <label for="input" class="label">Nome do serie</label>
-                <div class="underline"></div> 
 
-              </div>
 
+
+        <div class="container_explicacao">
+          <span>Esolha a escola para listar as Series</span>
+        </div>
+
+        <div class="container_escolas_cadastradas" id="listas_de_escola">
+
+          <div class="card_escola" id="escola">
+            <div class="container_icon">
+              <img class="icon_escola" src="../../../assets/img/icons/icon_serie.svg" alt="">
+            </div>
+
+            <div class="nome_escola">
+              <span>Nome Da Escola Aqui</span>
+            </div>
           </div>
 
-            <div class="container_buttons">
-              <button class="btn_cancelar" id="btn_cancelar"> Cancelar </button>
-              <button class="btn_verde" type="submit" name="Cadastrar" > Salvar </button>
-          </div>
+ 
 
-        </form>
-
-    </section>
-
+        </div>
+      
+        </section>
+  
 </body>
 </html>

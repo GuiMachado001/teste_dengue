@@ -1,5 +1,5 @@
 document.querySelector('#btn_cancelar').addEventListener('click', function(){
-    window.location = '../listar/listar_serie.php';
+    window.location = '../listar/escolher_escola.php';
 })
 
 document.addEventListener("DOMContentLoaded", () =>{
@@ -65,7 +65,7 @@ document.getElementById('form_cadastro_serie').addEventListener('submit', functi
                     document.getElementById('form_cadastro_serie').reset();
                 });
                 document.getElementById('btnIrParaListagem').addEventListener('click', () => {
-                    window.location = '../listar/listar_serie.php';
+                    window.location = '../listar/escolher_escola.php';
                 });
             }
         });

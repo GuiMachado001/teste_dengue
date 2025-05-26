@@ -19,15 +19,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
 
     <!-- Css da pagina -->
-     <link rel="stylesheet" href="../../../assets/css/serie_css/style.css">
-     <link rel="stylesheet" href="../../../assets/css/serie_css/editar_serie.css">
+     <link rel="stylesheet" href="../../../assets/css/aluno_css/style.css">
+     <link rel="stylesheet" href="../../../assets/css/aluno_css/editar_aluno.css">
 
 
          <!-- Js do alert sweetalert2 -->
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Js da pagina -->
-     <script src="../../../assets/js/serie_js/editar_serie.js" defer></script>
+     <script src="../../../assets/js/aluno_js/editar_aluno.js" defer></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -83,7 +83,7 @@
                 </ul>
               </li>
 
-              <!-- Dropdown serie -->
+              <!-- Dropdown Serie -->
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle title_dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Serie
@@ -128,15 +128,15 @@
         <span class="span_container_title_pagina">📋 Editar cidade</span>
       </div> -->
 
-        <form id="form_editar_serie" class="form_editar_serie">
-            <input type="hidden" id="id_serie">
+        <form id="form_editar_aluno" class="form_editar_aluno">
+            <input type="hidden" id="id_aluno">
 
             <div class="continer_inp_nome">
 
               <div class="input-container">
 
                 <input type="text" id="input" name="nome" required="">
-                <label for="input" class="label">Nome do serie</label>
+                <label for="input" class="label">Nome do aluno</label>
                 <div class="underline"></div> 
 
               </div>

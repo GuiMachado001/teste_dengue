@@ -1,7 +1,6 @@
 <?php require_once __DIR__ . '/../../../app/helpers/auth.php'; ?>
 
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,15 +18,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
 
     <!-- Css da pagina -->
-     <link rel="stylesheet" href="../../../assets/css/serie_css/style.css">
-     <link rel="stylesheet" href="../../../assets/css/serie_css/editar_serie.css">
+    <link rel="stylesheet" href="../../../assets/css/aluno_css/listar_aluno.css">
+    <link rel="stylesheet" href="../../../assets/css/aluno_css/style.css">
 
+    <!-- variável JS com valor do PHP -->
+    <script>
+      const perfilUsuario = <?= $perfilUsuario ?>;
+    </script>
 
-         <!-- Js do alert sweetalert2 -->
-     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Js do alert sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Js da pagina -->
-     <script src="../../../assets/js/serie_js/editar_serie.js" defer></script>
+     <script src="../../../assets/js/aluno_js/listar_aluno.js" defer></script>
+     <script src="../../../assets/js/aluno_js/excluir_aluno.js" defer></script>
+
+    <!-- Fonte -->
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -63,7 +71,7 @@
                   Cidade
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="../listar/listar_cidade.php">Listar</a></li>
+                  <li><a class="dropdown-item" href="">Listar</a></li>
                   <?php if($perfilUsuario == 1) { ?>
                     <li><a class="dropdown-item" href="../cadastrar/cadastrar_cidade.php">Cadastrar</a></li>
                   <?php } ?>
@@ -109,7 +117,6 @@
                 </ul>
               </li>
 
-
               <li class="nav-item">
                 <a class="nav-link title_dropdown" href="../../logout.php">Sair</a>
               </li>
@@ -119,38 +126,54 @@
         </div>
       </nav>
 
-      <div class="cotainer_img_logo_fesp">
-        <img class="img_logo_background" src="../../../assets/img/fesplogo.png" alt="">
-       </div>
+
+    <div class="cotainer_img_logo_fesp">
+      <img class="img_logo_background" src="../../../assets/img/fesplogo.png" alt="">
+    </div>
+
+
+
     <section class="main">
 
-      <!-- <div class="container_title_pagina">
-        <span class="span_container_title_pagina">📋 Editar cidade</span>
-      </div> -->
+<div class="container_btn_cadastrar_aluno">
+    <button 
+        class="btn_cadastrar_aluno" 
+        <?php if($perfilUsuario != 1) echo 'disabled style="background-color: grey; cursor: not-allowed;"'; ?>>
+        Cadastrar
+    </button>
+</div>
 
-        <form id="form_editar_serie" class="form_editar_serie">
-            <input type="hidden" id="id_serie">
 
-            <div class="continer_inp_nome">
+        <div class="container_title_pagina">
+          <span class="span_container_title_pagina">
+            <div class="container_img">
+              <img src="../../../assets/img/mosquito.png" alt="">
+            </div>
+              alunos Cadastrados
+            <div class="container_img">
+              <img src="../../../assets/img/mosquito.png" alt="">
+            </div>
+            </span>
+        </div>
 
-              <div class="input-container">
 
-                <input type="text" id="input" name="nome" required="">
-                <label for="input" class="label">Nome do serie</label>
-                <div class="underline"></div> 
+        <div class="container_lista_alunos">
+          <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Aluno</th>
+                    <th scope="col">Serie</th>
+                    <th scope="col">Pontos</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody id="lista_alunos">
 
-              </div>
-
-          </div>
-
-            <div class="container_buttons">
-              <button class="btn_cancelar" id="btn_cancelar"> Cancelar </button>
-              <button class="btn_verde" type="submit" name="Cadastrar" > Salvar </button>
-          </div>
-
-        </form>
-
+            </tbody>
+        </table>
+        </div>
     </section>
+
 
 </body>
 </html>

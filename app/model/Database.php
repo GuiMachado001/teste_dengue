@@ -149,10 +149,57 @@
             return $res['total'] ?? 0;
         }
 
+public function select_alunos_por_serie($id_escola) {
+    $query = "
+        SELECT 
+            a.id_aluno,
+            a.nome AS nome_aluno,
+            s.id_serie,
+            s.nome AS nome_serie,
+            COALESCE(pa.pontos, 0) AS total_pontos
+        FROM aluno a
+        INNER JOIN serie s ON a.id_serie = s.id_serie
+        LEFT JOIN pontos_aluno pa ON a.id_aluno = pa.id_aluno
+        WHERE s.id_escola = :id_escola
+        ORDER BY a.nome ASC
+    ";
+
+    $stmt = $this->conn->prepare($query);
+    $stmt->execute(['id_escola' => $id_escola]);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+        public function select_series_por_escola($id_escola) {
+            $query = "
+        SELECT 
+            a.id_serie,
+            a.nome AS nome_serie,
+            s.id_escola,
+            s.nome AS nome_escola
+        FROM serie a
+        INNER JOIN escola s ON a.id_escola = s.id_escola
+        WHERE s.id_escola = :id_escola
+        ORDER BY a.nome ASC
+            ";
+
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute(['id_escola' => $id_escola]);
+
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+
         public function excluir_pontos_escola($id_escola){
             $query = "DELETE FROM pontos_escola WHERE id_escola = :id";
             $stmt = $this->conn->prepare($query);
             $stmt->execute([':id' => $id_escola]);
+        }
+
+        public function excluir_pontos_aluno($id_aluno){
+            $query = "DELETE FROM pontos_aluno WHERE id_aluno = :id";
+            $stmt = $this->conn->prepare($query);
+            return $stmt->execute([':id' => $id_aluno]);
         }
 
         public function update($where, $array){

@@ -1,13 +1,5 @@
-<?php
-session_start();
+<?php require_once __DIR__ . '/../../../app/helpers/auth.php'; ?>
 
-if (!isset($_SESSION['usuario'])) {
-    header('Location: /teste_dengue/public/index.php');
-    exit;
-}
-
-$perfilUsuario = $_SESSION['usuario']['perfil']; 
-?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -105,11 +97,24 @@ $perfilUsuario = $_SESSION['usuario']['perfil'];
                       Serie
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="../../serie/listar/listar_serie.php">Listar</a></li>
+                    <li><a class="dropdown-item" href="../../serie/listar/escolher_escola.php">Listar</a></li>
                     <?php if($perfilUsuario == 1) { ?>
                       <li><a class="dropdown-item" href="../../serie/cadastrar/cadastrar_serie.php">Cadastrar</a></li>
                     <?php } ?>
                   </ul>
+              </li>
+
+              <!-- Dropdown aluno -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle title_dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Aluno
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="../../aluno/listar/escolher_escola.php">Listar</a></li>
+                  <?php if($perfilUsuario == 1) { ?>
+                    <li><a class="dropdown-item" href="../../aluno/cadastrar/cadastrar_aluno.php">Cadastrar</a></li>
+                  <?php } ?>
+                </ul>
               </li>
 
               <li class="nav-item">

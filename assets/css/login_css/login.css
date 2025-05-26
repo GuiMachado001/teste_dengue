@@ -6,29 +6,12 @@ body {
     font-family: sans-serif;
     overflow: hidden;
 
-    /* background-image: url(../../img/logoAgente360qualidade.png);
+    background-image: url(../../img/logoAgente360qualidade.png);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: auto; */
+    background-size: auto;
 }
 
-.container_img_background{
-    width: 100%;
-    height: 100vh;
-    /* border: 1px solid red; */
-
-    position: absolute;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-
-}
-.img_logo_background{
-    width: 60%;
-filter: drop-shadow(-6px 9px 26px #fff);
-}
 
 @media screen and (max-width: 600px) {
     body {
@@ -54,6 +37,8 @@ filter: drop-shadow(-6px 9px 26px #fff);
     box-sizing: border-box;
     z-index: 10;
 
+    /* background-color: #18181b; */
+
 background: rgba(0, 0, 0, 0.53);
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -75,7 +60,7 @@ border: 1px solid rgba(0, 0, 0, 0.3);
 h3 {
     margin: 0;
     padding: 0 0 20px;
-    color: #009414;
+    color: #ffffff;
     text-align: center;
 }
 
@@ -90,7 +75,7 @@ h3 {
     padding-left: 20px;
     box-sizing: border-box;
     border: none;
-    border-bottom: 2px solid rgba(255, 166, 0, 0.63);
+    border-bottom: 2px solid orange;
     outline: none;
     color: #FEB028;
 }
@@ -150,15 +135,9 @@ p {
     color: #0000ff;
 }
 
-.wave{
-    filter: drop-shadow(0 -5mm 6mm rgb(0, 6, 78));
-    opacity: 0.9;
-    z-index: 10;
-}
-
-@media (min-width: 0px) and (max-width: 780px){
-    .img_logo_background{
-        width: 1200px;
-        /* background-color: red; */
-    }
+.wave {
+  opacity: 0.8;
+  z-index: 10;
+  will-change: transform; /* ajuda o navegador a otimizar */
+    backdrop-filter: blur(5%);
 }

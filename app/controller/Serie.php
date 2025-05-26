@@ -72,4 +72,14 @@ class Serie{
         return $db->select_serie_escola();
     }
 
+    
+
+
+    public function buscar_serie_escola($id_escola){
+    if(is_numeric($id_escola) && $id_escola > 0){
+        $db = new Database();
+        return $db->select_series_por_escola($id_escola);
+    }
+
+}
 }
